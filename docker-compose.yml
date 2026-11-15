@@ -1,0 +1,31 @@
+# 一键编排：后端 + Redis
+# 用法：docker compose up -d   （-d 表示后台运行）
+services:
+  # Redis：会话记忆 + 限流
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data          # 数据持久化到命名卷，容器删除后数据不丢
+    restart: unless-stopped
+
+  # 后端：FastAPI
+  backend:
+    build: .                       # 用当前目录的 Dockerfile 构建镜像
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env                       # 把 .env 里的密钥/配置注入容器环境变量
+    environment:
+      - REDIS_URL=redis://redis:6379/0   # 覆盖：容器内要用服务名 redis，不是 127.0.0.1
+    volumes:
+      - ./chroma_db:/app/chroma_db  # 向量库持久化到宿主机
+      - ./data:/app/data            # SQLite 数据库 + 知识库源文件持久化
+      - ./logs:/app/logs            # 日志持久化
+    depends_on:
+      - redis                       # 保证 redis 先启动
+    restart: unless-stopped
+
+volumes:
+  redis_data:

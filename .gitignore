@@ -1,0 +1,37 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- 虚拟环境 ---
+.venv/
+venv/
+env/
+
+# --- 密钥与本地配置（严禁提交） ---
+.env
+
+# --- 运行期产物（可重建，无需提交） ---
+chroma_db/
+logs/
+*.log
+md5.text
+
+# --- 运行期数据库（SQLite，可重建） ---
+data/agent.db
+
+# --- 测试缓存 ---
+.pytest_cache/
+
+# --- IDE ---
+.idea/
+.vscode/
+*.iml
+
+# --- 系统 ---
+.DS_Store
+Thumbs.db

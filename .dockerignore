@@ -1,0 +1,27 @@
+# 虚拟环境（容器内会重新安装，本地的 .venv 不需要打进镜像）
+.venv/
+venv/
+env/
+
+# 缓存与 IDE
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.idea/
+.vscode/
+.DS_Store
+
+# 敏感信息（绝不打进镜像，通过 docker-compose 的 env_file 注入）
+.env
+
+# 运行期产物与数据（用 volume 挂载持久化，不打包进镜像）
+chroma_db/
+data/
+logs/
+*.log
+md5.text
+
+# 版本控制
+.git/
+.gitignore

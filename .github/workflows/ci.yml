@@ -33,11 +33,11 @@ jobs:
           python-version: "3.13"
           cache: pip
 
-      # 3. 安装项目依赖
+      # 3. 安装项目依赖（运行依赖 + 开发/测试依赖）
       - name: 安装依赖
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements.txt -r requirements-dev.txt
 
       # 4. 运行单元测试
       - name: 运行测试

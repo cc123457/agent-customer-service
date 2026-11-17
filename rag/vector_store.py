@@ -6,6 +6,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from utils.path_tool import get_abs_path
 from utils.file_handler import pdf_loader, txt_loader, listdir_with_allowed_type, get_file_md5_hex
 from utils.logger_handler import logger
+from langchain_community.retrievers import BM25Retriever
+import jieba
 import os
 
 
@@ -24,8 +26,62 @@ class VectorStoreService:
             length_function=len,
         )
 
+        self._bm25_retriever = None   # BM25 关键词检索器（懒加载 + 缓存）
+
     def get_retriever(self):
-        return self.vector_store.as_retriever(search_kwargs={"k": chroma_conf["k"]})
+        """返回混合检索器（向量 + BM25 关键词，RRF 融合）"""
+        return HybridRetriever(self)
+
+    def _load_all_documents(self) -> list[Document]:
+        """从向量库取回所有分片文档，用于构建 BM25 关键词索引"""
+        data = self.vector_store.get(include=["documents", "metadatas"])
+        documents = data.get("documents") or []
+        metadatas = data.get("metadatas") or [{}] * len(documents)
+        docs = []
+        for text, meta in zip(documents, metadatas):
+            docs.append(Document(page_content=text, metadata=meta or {}))
+        return docs
+
+    def _get_bm25_retriever(self) -> BM25Retriever | None:
+        """BM25 关键词检索器（中文用 jieba 分词，懒加载 + 缓存）"""
+        if self._bm25_retriever is None:
+            documents = [doc for doc in self._load_all_documents() if doc.page_content.strip()]
+            if not documents:
+                return None
+            self._bm25_retriever = BM25Retriever.from_documents(
+                documents,
+                preprocess_func=jieba.lcut,   # 中文分词：默认按空格会整句当一词，BM25 失效
+            )
+            self._bm25_retriever.k = chroma_conf["k"]
+        return self._bm25_retriever
+
+    def hybrid_search(self, query: str, top_n: int = None) -> list[Document]:
+        """混合检索：向量相似度 + BM25 关键词，RRF 融合"""
+        top_n = chroma_conf["k"] if top_n is None else top_n
+        if top_n < 1:
+            raise ValueError("top_n must be positive")
+        if not query.strip():
+            return []
+        vector_docs = self.vector_store.similarity_search(query, k=top_n)
+        bm25_retriever = self._get_bm25_retriever()
+        bm25_docs = []
+        if bm25_retriever is not None:
+            bm25_retriever.k = top_n
+            bm25_docs = bm25_retriever.invoke(query)
+        return self._rrf_fusion([vector_docs, bm25_docs], top_n=top_n)
+
+    @staticmethod
+    def _rrf_fusion(doc_lists: list, k: int = 60, top_n: int = 3) -> list[Document]:
+        """RRF 融合：score = Σ 1/(k + rank)，按文档内容去重累加排名倒数"""
+        fused = {}
+        for docs in doc_lists:
+            for rank, doc in enumerate(docs):
+                key = doc.page_content
+                if key not in fused:
+                    fused[key] = [doc, 0.0]
+                fused[key][1] += 1.0 / (k + rank + 1)
+        ranked = sorted(fused.values(), key=lambda x: x[1], reverse=True)
+        return [doc for doc, _ in ranked[:top_n]]
 
     def load_document(self):
         """
@@ -94,6 +150,7 @@ class VectorStoreService:
 
                 # 将内容存入向量库
                 self.vector_store.add_documents(split_document)
+                self._bm25_retriever = None
 
                 # 记录这个已经处理好的文件的md5，避免下次重复加载
                 save_md5_hex(md5_hex)
@@ -103,6 +160,16 @@ class VectorStoreService:
                 # exc_info为True会记录详细的报错堆栈，如果为False仅记录报错信息本身
                 logger.error(f"[加载知识库]{path}加载失败：{str(e)}", exc_info=True)
                 continue
+
+
+class HybridRetriever:
+    """混合检索器包装：暴露 invoke 接口，与 LangChain retriever 调用方式一致"""
+
+    def __init__(self, service: VectorStoreService):
+        self._service = service
+
+    def invoke(self, query: str) -> list[Document]:
+        return self._service.hybrid_search(query)
 
 
 if __name__ == '__main__':

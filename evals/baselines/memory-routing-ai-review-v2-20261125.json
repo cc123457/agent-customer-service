@@ -1,0 +1,3835 @@
+{
+  "scope": "当前助手对160份原答结合原文逐条AI语义复核；评审者参与实现，非外部独立盲评；人评字段均为空。",
+  "records": [
+    {
+      "id": "memory_v1:routing-v2-profile-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-profile-00",
+      "answer": "CIRRUS-410",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-00:fact",
+          "question": "我用的是CIRRUS-410。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-imperative-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-imperative-00",
+      "answer": "电机检修接收单和领件码",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-00:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-510，最终领件码是TAKE-610。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-correction-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-correction-00",
+      "answer": "CEDAR-810",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-00:old",
+          "question": "我用的是CEDAR-710。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-00:new",
+          "question": "实际型号是CEDAR-810，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-forget-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-forget-00",
+      "answer": "HIDDEN-910",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-00:old",
+          "question": "我用的是HIDDEN-910。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-00:forget",
+          "question": "请忘记我之前的型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-effective_date-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-effective_date-00",
+      "answer": "瓷砖",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-00:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-00:plan",
+          "question": "从2027-01-05起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-no_evidence-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-no_evidence-00",
+      "answer": "无相关记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-00:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-00:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1110。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-ambiguity-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-ambiguity-00",
+      "answer": "BEDROOM-1310",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "两台设备且未指定对象，回答自行选定其中一台，没有澄清。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-00:a",
+          "question": "客厅设备型号是LIVING-1210。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-00:b",
+          "question": "卧室设备型号是BEDROOM-1310。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-multi_session-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-multi_session-00",
+      "answer": "无相关凭证编号信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-00:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1410。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-00:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1510。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-short_forget-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-short_forget-00",
+      "answer": "详细",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-00:preference",
+          "question": "我希望回答简短。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-00:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-note_forget-00",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-note_forget-00",
+      "answer": "3200元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-00:note",
+          "question": "记住：配件预算上限是3200元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-00:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-profile-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-profile-01",
+      "answer": "CIRRUS-411",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-01:fact",
+          "question": "我用的是CIRRUS-411。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-imperative-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-imperative-01",
+      "answer": "电机检修接收单和领件码",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-01:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-511，最终领件码是TAKE-611。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-correction-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-correction-01",
+      "answer": "CEDAR-811",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-01:old",
+          "question": "我用的是CEDAR-711。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-01:new",
+          "question": "实际型号是CEDAR-811，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-forget-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-forget-01",
+      "answer": "HIDDEN-911",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-01:old",
+          "question": "我用的是HIDDEN-911。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-01:forget",
+          "question": "请删除我之前的设备型号记录。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-effective_date-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-effective_date-01",
+      "answer": "木地板",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-01:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-01:plan",
+          "question": "从2026-12-14起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-no_evidence-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-no_evidence-01",
+      "answer": "无相关记录或已遗忘，无法提供凭证编号。",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-01:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-01:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1111。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-ambiguity-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-ambiguity-01",
+      "answer": "BEDROOM-1311",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "两台设备且未指定对象，回答自行选定其中一台，没有澄清。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-01:a",
+          "question": "客厅设备型号是LIVING-1211。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-01:b",
+          "question": "卧室设备型号是BEDROOM-1311。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-multi_session-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-multi_session-01",
+      "answer": "无相关凭证编号信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-01:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1411。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-01:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1511。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-short_forget-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-short_forget-01",
+      "answer": "详细",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-01:preference",
+          "question": "我希望回答详细。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-01:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-note_forget-01",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-note_forget-01",
+      "answer": "3310元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-01:note",
+          "question": "记住：配件预算上限是3310元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-01:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-profile-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-profile-02",
+      "answer": "CIRRUS-412",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-02:fact",
+          "question": "我用的是CIRRUS-412。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-imperative-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-imperative-02",
+      "answer": "电机检修接收单和领件码",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-02:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-512，最终领件码是TAKE-612。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-correction-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-correction-02",
+      "answer": "CEDAR-812",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-02:old",
+          "question": "我用的是CEDAR-712。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-02:new",
+          "question": "实际型号是CEDAR-812，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-forget-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-forget-02",
+      "answer": "HIDDEN-912",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-02:old",
+          "question": "我用的是HIDDEN-912。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-02:forget",
+          "question": "忘记我的型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-effective_date-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-effective_date-02",
+      "answer": "瓷砖",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-02:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-02:plan",
+          "question": "从2027-01-05起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-no_evidence-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-no_evidence-02",
+      "answer": "无相关记录或凭证编号",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-02:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-02:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1112。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-ambiguity-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-ambiguity-02",
+      "answer": "BEDROOM-1312",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "两台设备且未指定对象，回答自行选定其中一台，没有澄清。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-02:a",
+          "question": "客厅设备型号是LIVING-1212。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-02:b",
+          "question": "卧室设备型号是BEDROOM-1312。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-multi_session-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-multi_session-02",
+      "answer": "保修凭证编号和密封条维修服务编号未提供，无相关记录。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-02:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1412。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-02:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1512。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-short_forget-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-short_forget-02",
+      "answer": "详细",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-02:preference",
+          "question": "我希望回答简短。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-02:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-note_forget-02",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-note_forget-02",
+      "answer": "3420元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-02:note",
+          "question": "记住：配件预算上限是3420元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-02:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-profile-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-profile-03",
+      "answer": "CIRRUS-413",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-03:fact",
+          "question": "我用的是CIRRUS-413。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-imperative-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-imperative-03",
+      "answer": "电机检修接收单和领件码",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-03:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-513，最终领件码是TAKE-613。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-correction-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-correction-03",
+      "answer": "CEDAR-813",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-03:old",
+          "question": "我用的是CEDAR-713。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-03:new",
+          "question": "实际型号是CEDAR-813，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-forget-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-forget-03",
+      "answer": "HIDDEN-913",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-03:old",
+          "question": "我用的是HIDDEN-913。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-03:forget",
+          "question": "忘记我的设备型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-effective_date-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-effective_date-03",
+      "answer": "木地板",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-03:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-03:plan",
+          "question": "从2026-12-14起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-no_evidence-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-no_evidence-03",
+      "answer": "无相关记录或凭证编号信息",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-03:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-03:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1113。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-ambiguity-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-ambiguity-03",
+      "answer": "BEDROOM-1313",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "两台设备且未指定对象，回答自行选定其中一台，没有澄清。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-03:a",
+          "question": "客厅设备型号是LIVING-1213。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-03:b",
+          "question": "卧室设备型号是BEDROOM-1313。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-multi_session-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-multi_session-03",
+      "answer": "无相关凭证编号信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-03:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1413。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-03:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1513。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-short_forget-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-short_forget-03",
+      "answer": "详细",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-03:preference",
+          "question": "我希望回答详细。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-03:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v1:routing-v2-note_forget-03",
+      "arm": "memory_v1",
+      "case_id": "routing-v2-note_forget-03",
+      "answer": "3530元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-03:note",
+          "question": "记住：配件预算上限是3530元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-03:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-profile-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-profile-00",
+      "answer": "CIRRUS-410",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-00:fact",
+          "question": "我用的是CIRRUS-410。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-imperative-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-imperative-00",
+      "answer": "检修接收单为RCP-510，最终领件码是TAKE-610。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-00:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-510，最终领件码是TAKE-610。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-correction-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-correction-00",
+      "answer": "CEDAR-810",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-00:old",
+          "question": "我用的是CEDAR-710。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-00:new",
+          "question": "实际型号是CEDAR-810，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-forget-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-forget-00",
+      "answer": "无法提供，资料不足",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-00:old",
+          "question": "我用的是HIDDEN-910。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-00:forget",
+          "question": "请忘记我之前的型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-effective_date-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-effective_date-00",
+      "answer": "瓷砖",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-00:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-00:plan",
+          "question": "从2027-01-05起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-no_evidence-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-no_evidence-00",
+      "answer": "无相关记录或凭证编号信息",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-00:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-00:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1110。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-ambiguity-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-ambiguity-00",
+      "answer": "请先说明是哪台设备或确认当前型号，已有记录存在多个对象或互相矛盾的信息。",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-00:a",
+          "question": "客厅设备型号是LIVING-1210。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-00:b",
+          "question": "卧室设备型号是BEDROOM-1310。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-multi_session-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-multi_session-00",
+      "answer": "保修凭证编号为WARRANTY-1410，密封条维修服务编号为SERVICE-1510。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-00:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1410。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-00:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1510。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-short_forget-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-short_forget-00",
+      "answer": "简短答案，只含所问内容",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。实际上下文只有当前问题；不能把“简短”字面命中直接解释成旧原文重新注入。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-00:preference",
+          "question": "我希望回答简短。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-00:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-note_forget-00",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-note_forget-00",
+      "answer": "无相关数据",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-00:note",
+          "question": "记住：配件预算上限是3200元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-00:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-profile-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-profile-01",
+      "answer": "CIRRUS-411",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-01:fact",
+          "question": "我用的是CIRRUS-411。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-imperative-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-imperative-01",
+      "answer": "检修接收单为RCP-511，最终领件码是TAKE-611。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-01:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-511，最终领件码是TAKE-611。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-correction-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-correction-01",
+      "answer": "CEDAR-811",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-01:old",
+          "question": "我用的是CEDAR-711。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-01:new",
+          "question": "实际型号是CEDAR-811，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-forget-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-forget-01",
+      "answer": "无相关记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-01:old",
+          "question": "我用的是HIDDEN-911。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-01:forget",
+          "question": "请删除我之前的设备型号记录。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-effective_date-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-effective_date-01",
+      "answer": "木地板",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-01:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-01:plan",
+          "question": "从2026-12-14起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-no_evidence-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-no_evidence-01",
+      "answer": "无相关凭证编号记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-01:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-01:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1111。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-ambiguity-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-ambiguity-01",
+      "answer": "请先说明是哪台设备或确认当前型号，已有记录存在多个对象或互相矛盾的信息。",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-01:a",
+          "question": "客厅设备型号是LIVING-1211。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-01:b",
+          "question": "卧室设备型号是BEDROOM-1311。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-multi_session-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-multi_session-01",
+      "answer": "保修凭证编号为WARRANTY-1411，密封条维修服务编号为SERVICE-1511。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-01:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1411。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-01:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1511。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-short_forget-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-short_forget-01",
+      "answer": "简短答案，只含所问内容",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。实际上下文只有当前问题；不能把“简短”字面命中直接解释成旧原文重新注入。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-01:preference",
+          "question": "我希望回答详细。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-01:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-note_forget-01",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-note_forget-01",
+      "answer": "无相关数据",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-01:note",
+          "question": "记住：配件预算上限是3310元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-01:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-profile-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-profile-02",
+      "answer": "CIRRUS-412",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-02:fact",
+          "question": "我用的是CIRRUS-412。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-imperative-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-imperative-02",
+      "answer": "检修接收单为RCP-512，最终领件码是TAKE-612。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-02:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-512，最终领件码是TAKE-612。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-correction-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-correction-02",
+      "answer": "CEDAR-812",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-02:old",
+          "question": "我用的是CEDAR-712。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-02:new",
+          "question": "实际型号是CEDAR-812，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-forget-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-forget-02",
+      "answer": "无相关记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-02:old",
+          "question": "我用的是HIDDEN-912。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-02:forget",
+          "question": "忘记我的型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-effective_date-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-effective_date-02",
+      "answer": "瓷砖",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-02:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-02:plan",
+          "question": "从2027-01-05起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-no_evidence-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-no_evidence-02",
+      "answer": "无相关记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-02:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-02:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1112。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-ambiguity-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-ambiguity-02",
+      "answer": "请先说明是哪台设备或确认当前型号，已有记录存在多个对象或互相矛盾的信息。",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-02:a",
+          "question": "客厅设备型号是LIVING-1212。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-02:b",
+          "question": "卧室设备型号是BEDROOM-1312。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-multi_session-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-multi_session-02",
+      "answer": "保修凭证编号为WARRANTY-1412，密封条维修服务编号为SERVICE-1512。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-02:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1412。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-02:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1512。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-short_forget-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-short_forget-02",
+      "answer": "简短答案，只含所问内容",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。实际上下文只有当前问题；不能把“简短”字面命中直接解释成旧原文重新注入。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-02:preference",
+          "question": "我希望回答简短。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-02:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-note_forget-02",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-note_forget-02",
+      "answer": "无相关数据",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-02:note",
+          "question": "记住：配件预算上限是3420元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-02:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-profile-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-profile-03",
+      "answer": "CIRRUS-413",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-03:fact",
+          "question": "我用的是CIRRUS-413。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-imperative-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-imperative-03",
+      "answer": "检修接收单为RCP-513，最终领件码是TAKE-613。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-03:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-513，最终领件码是TAKE-613。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-correction-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-correction-03",
+      "answer": "CEDAR-813",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-03:old",
+          "question": "我用的是CEDAR-713。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-03:new",
+          "question": "实际型号是CEDAR-813，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-forget-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-forget-03",
+      "answer": "无相关记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-03:old",
+          "question": "我用的是HIDDEN-913。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-03:forget",
+          "question": "忘记我的设备型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-effective_date-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-effective_date-03",
+      "answer": "木地板",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-03:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-03:plan",
+          "question": "从2026-12-14起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-no_evidence-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-no_evidence-03",
+      "answer": "无相关记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-03:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-03:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1113。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-ambiguity-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-ambiguity-03",
+      "answer": "请先说明是哪台设备或确认当前型号，已有记录存在多个对象或互相矛盾的信息。",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-03:a",
+          "question": "客厅设备型号是LIVING-1213。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-03:b",
+          "question": "卧室设备型号是BEDROOM-1313。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-multi_session-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-multi_session-03",
+      "answer": "保修凭证编号为WARRANTY-1413，密封条维修服务编号为SERVICE-1513。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-03:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1413。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-03:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1513。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-short_forget-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-short_forget-03",
+      "answer": "简短答案，只含所问内容",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。实际上下文只有当前问题；不能把“简短”字面命中直接解释成旧原文重新注入。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-03:preference",
+          "question": "我希望回答详细。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-03:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "memory_v2:routing-v2-note_forget-03",
+      "arm": "memory_v2",
+      "case_id": "routing-v2-note_forget-03",
+      "answer": "无相关数据",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-03:note",
+          "question": "记住：配件预算上限是3530元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-03:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-profile-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-profile-00",
+      "answer": "CIRRUS-410",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-00:fact",
+          "question": "我用的是CIRRUS-410。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-imperative-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-imperative-00",
+      "answer": "检修接收单为RCP-510，最终领件码是TAKE-610。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-00:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-510，最终领件码是TAKE-610。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-correction-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-correction-00",
+      "answer": "CEDAR-810",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-00:old",
+          "question": "我用的是CEDAR-710。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-00:new",
+          "question": "实际型号是CEDAR-810，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-forget-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-forget-00",
+      "answer": "HIDDEN-910",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-00:old",
+          "question": "我用的是HIDDEN-910。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-00:forget",
+          "question": "请忘记我之前的型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-effective_date-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-effective_date-00",
+      "answer": "木地板",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "没有给出提问时已生效的地面值；参考组在未来计划题提前采用了尚未生效的木地板。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-00:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-00:plan",
+          "question": "从2027-01-05起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-no_evidence-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-no_evidence-00",
+      "answer": "无相关凭证编号记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-00:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-00:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1110。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-ambiguity-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-ambiguity-00",
+      "answer": "LIVING-1210",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "两台设备且未指定对象，回答自行选定其中一台，没有澄清。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-00:a",
+          "question": "客厅设备型号是LIVING-1210。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-00:b",
+          "question": "卧室设备型号是BEDROOM-1310。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-multi_session-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-multi_session-00",
+      "answer": "保修凭证编号WARRANTY-1410，密封条维修服务编号SERVICE-1510",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-00:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1410。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-00:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1510。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-short_forget-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-short_forget-00",
+      "answer": "简短",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-00:preference",
+          "question": "我希望回答简短。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-00:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-note_forget-00",
+      "arm": "full_history",
+      "case_id": "routing-v2-note_forget-00",
+      "answer": "3200元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-00:note",
+          "question": "记住：配件预算上限是3200元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-00:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-profile-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-profile-01",
+      "answer": "CIRRUS-411",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-01:fact",
+          "question": "我用的是CIRRUS-411。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-imperative-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-imperative-01",
+      "answer": "检修接收单为RCP-511，最终领件码是TAKE-611。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-01:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-511，最终领件码是TAKE-611。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-correction-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-correction-01",
+      "answer": "CEDAR-811",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-01:old",
+          "question": "我用的是CEDAR-711。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-01:new",
+          "question": "实际型号是CEDAR-811，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-forget-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-forget-01",
+      "answer": "HIDDEN-911",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-01:old",
+          "question": "我用的是HIDDEN-911。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-01:forget",
+          "question": "请删除我之前的设备型号记录。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-effective_date-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-effective_date-01",
+      "answer": "木地板",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-01:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-01:plan",
+          "question": "从2026-12-14起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-no_evidence-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-no_evidence-01",
+      "answer": "无相关凭证编号记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-01:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-01:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1111。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-ambiguity-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-ambiguity-01",
+      "answer": "LIVING-1211",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "两台设备且未指定对象，回答自行选定其中一台，没有澄清。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-01:a",
+          "question": "客厅设备型号是LIVING-1211。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-01:b",
+          "question": "卧室设备型号是BEDROOM-1311。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-multi_session-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-multi_session-01",
+      "answer": "保修凭证编号WARRANTY-1411，密封条维修服务编号SERVICE-1511",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-01:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1411。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-01:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1511。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-short_forget-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-short_forget-01",
+      "answer": "详细",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-01:preference",
+          "question": "我希望回答详细。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-01:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-note_forget-01",
+      "arm": "full_history",
+      "case_id": "routing-v2-note_forget-01",
+      "answer": "3310元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-01:note",
+          "question": "记住：配件预算上限是3310元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-01:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-profile-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-profile-02",
+      "answer": "CIRRUS-412",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-02:fact",
+          "question": "我用的是CIRRUS-412。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-imperative-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-imperative-02",
+      "answer": "检修接收单为RCP-512，最终领件码是TAKE-612。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-02:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-512，最终领件码是TAKE-612。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-correction-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-correction-02",
+      "answer": "CEDAR-812",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-02:old",
+          "question": "我用的是CEDAR-712。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-02:new",
+          "question": "实际型号是CEDAR-812，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-forget-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-forget-02",
+      "answer": "HIDDEN-912",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-02:old",
+          "question": "我用的是HIDDEN-912。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-02:forget",
+          "question": "忘记我的型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-effective_date-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-effective_date-02",
+      "answer": "木地板",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "没有给出提问时已生效的地面值；参考组在未来计划题提前采用了尚未生效的木地板。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-02:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-02:plan",
+          "question": "从2027-01-05起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-no_evidence-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-no_evidence-02",
+      "answer": "无相关凭证编号记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-02:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-02:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1112。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-ambiguity-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-ambiguity-02",
+      "answer": "LIVING-1212",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "两台设备且未指定对象，回答自行选定其中一台，没有澄清。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-02:a",
+          "question": "客厅设备型号是LIVING-1212。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-02:b",
+          "question": "卧室设备型号是BEDROOM-1312。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-multi_session-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-multi_session-02",
+      "answer": "保修凭证编号WARRANTY-1412，密封条维修服务编号SERVICE-1512",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-02:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1412。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-02:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1512。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-short_forget-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-short_forget-02",
+      "answer": "简短",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-02:preference",
+          "question": "我希望回答简短。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-02:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-note_forget-02",
+      "arm": "full_history",
+      "case_id": "routing-v2-note_forget-02",
+      "answer": "3420",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-02:note",
+          "question": "记住：配件预算上限是3420元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-02:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-profile-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-profile-03",
+      "answer": "CIRRUS-413",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-03:fact",
+          "question": "我用的是CIRRUS-413。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-imperative-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-imperative-03",
+      "answer": "检修接收单为RCP-513，最终领件码是TAKE-613。",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-03:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-513，最终领件码是TAKE-613。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-correction-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-correction-03",
+      "answer": "CEDAR-813",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-03:old",
+          "question": "我用的是CEDAR-713。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-03:new",
+          "question": "实际型号是CEDAR-813，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-forget-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-forget-03",
+      "answer": "HIDDEN-913",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-03:old",
+          "question": "我用的是HIDDEN-913。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-03:forget",
+          "question": "忘记我的设备型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-effective_date-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-effective_date-03",
+      "answer": "木地板",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-03:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-03:plan",
+          "question": "从2026-12-14起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-no_evidence-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-no_evidence-03",
+      "answer": "无相关凭证编号记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-03:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-03:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1113。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-ambiguity-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-ambiguity-03",
+      "answer": "LIVING-1213",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "两台设备且未指定对象，回答自行选定其中一台，没有澄清。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-03:a",
+          "question": "客厅设备型号是LIVING-1213。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-03:b",
+          "question": "卧室设备型号是BEDROOM-1313。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-multi_session-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-multi_session-03",
+      "answer": "保修凭证编号WARRANTY-1413，密封条维修服务编号SERVICE-1513",
+      "abstain": false,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "回答覆盖原文全部所问信息，日期/更正与提问时点一致，拒答字段正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-03:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1413。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-03:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1513。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-short_forget-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-short_forget-03",
+      "answer": "详细",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-03:preference",
+          "question": "我希望回答详细。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-03:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "full_history:routing-v2-note_forget-03",
+      "arm": "full_history",
+      "case_id": "routing-v2-note_forget-03",
+      "answer": "3530元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-03:note",
+          "question": "记住：配件预算上限是3530元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-03:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-profile-00",
+      "arm": "recent",
+      "case_id": "routing-v2-profile-00",
+      "answer": "无法提供设备型号，当前无相关记录。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-00:fact",
+          "question": "我用的是CIRRUS-410。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-imperative-00",
+      "arm": "recent",
+      "case_id": "routing-v2-imperative-00",
+      "answer": "电机检修接收单和领件码",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-00:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-510，最终领件码是TAKE-610。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-correction-00",
+      "arm": "recent",
+      "case_id": "routing-v2-correction-00",
+      "answer": "无当前型号信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-00:old",
+          "question": "我用的是CEDAR-710。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-00:new",
+          "question": "实际型号是CEDAR-810，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-forget-00",
+      "arm": "recent",
+      "case_id": "routing-v2-forget-00",
+      "answer": "未提供2026-12-02使用的设备型号信息",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-00:old",
+          "question": "我用的是HIDDEN-910。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-00:forget",
+          "question": "请忘记我之前的型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-effective_date-00",
+      "arm": "recent",
+      "case_id": "routing-v2-effective_date-00",
+      "answer": "未提供当前生效的地面材质信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "没有给出提问时已生效的地面值；参考组在未来计划题提前采用了尚未生效的木地板。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-00:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-00:plan",
+          "question": "从2027-01-05起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-no_evidence-00",
+      "arm": "recent",
+      "case_id": "routing-v2-no_evidence-00",
+      "answer": "无相关凭证编号记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-00:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-00:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1110。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-ambiguity-00",
+      "arm": "recent",
+      "case_id": "routing-v2-ambiguity-00",
+      "answer": "无法提供机器型号，当前无相关记录或授权信息。",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-00:a",
+          "question": "客厅设备型号是LIVING-1210。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-00:b",
+          "question": "卧室设备型号是BEDROOM-1310。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-multi_session-00",
+      "arm": "recent",
+      "case_id": "routing-v2-multi_session-00",
+      "answer": "保修凭证编号和密封条维修服务编号未提供，无法列出。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-00:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1410。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-00:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1510。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-short_forget-00",
+      "arm": "recent",
+      "case_id": "routing-v2-short_forget-00",
+      "answer": "简短",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-00:preference",
+          "question": "我希望回答简短。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-00:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-note_forget-00",
+      "arm": "recent",
+      "case_id": "routing-v2-note_forget-00",
+      "answer": "配件预算上限为5000元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-00:note",
+          "question": "记住：配件预算上限是3200元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-00:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-profile-01",
+      "arm": "recent",
+      "case_id": "routing-v2-profile-01",
+      "answer": "无法提供设备型号，当前无相关记录。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-01:fact",
+          "question": "我用的是CIRRUS-411。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-imperative-01",
+      "arm": "recent",
+      "case_id": "routing-v2-imperative-01",
+      "answer": "电机检修接收单和领件码",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-01:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-511，最终领件码是TAKE-611。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-correction-01",
+      "arm": "recent",
+      "case_id": "routing-v2-correction-01",
+      "answer": "无当前型号信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-01:old",
+          "question": "我用的是CEDAR-711。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-01:new",
+          "question": "实际型号是CEDAR-811，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-forget-01",
+      "arm": "recent",
+      "case_id": "routing-v2-forget-01",
+      "answer": "未提供2026-12-02使用的设备型号信息",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-01:old",
+          "question": "我用的是HIDDEN-911。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-01:forget",
+          "question": "请删除我之前的设备型号记录。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-effective_date-01",
+      "arm": "recent",
+      "case_id": "routing-v2-effective_date-01",
+      "answer": "未提供当前生效的地面材质信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "没有给出提问时已生效的地面值；参考组在未来计划题提前采用了尚未生效的木地板。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-01:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-01:plan",
+          "question": "从2026-12-14起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-no_evidence-01",
+      "arm": "recent",
+      "case_id": "routing-v2-no_evidence-01",
+      "answer": "无相关凭证编号记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-01:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-01:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1111。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-ambiguity-01",
+      "arm": "recent",
+      "case_id": "routing-v2-ambiguity-01",
+      "answer": "无法提供机器型号，当前无相关数据",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-01:a",
+          "question": "客厅设备型号是LIVING-1211。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-01:b",
+          "question": "卧室设备型号是BEDROOM-1311。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-multi_session-01",
+      "arm": "recent",
+      "case_id": "routing-v2-multi_session-01",
+      "answer": "保修凭证编号和密封条维修服务编号未提供，无法列出。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-01:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1411。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-01:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1511。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-short_forget-01",
+      "arm": "recent",
+      "case_id": "routing-v2-short_forget-01",
+      "answer": "详细程度由用户当前偏好决定，但当前未明确指定。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": true,
+      "reason": "回答明确表示未指定用户偏好；“详细程度”是泛指问题对象，未断言旧偏好为详细。规则将普通词汇误判为旧值命中，AI判通过。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-01:preference",
+          "question": "我希望回答详细。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-01:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-note_forget-01",
+      "arm": "recent",
+      "case_id": "routing-v2-note_forget-01",
+      "answer": "配件预算上限为5000元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-01:note",
+          "question": "记住：配件预算上限是3310元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-01:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-profile-02",
+      "arm": "recent",
+      "case_id": "routing-v2-profile-02",
+      "answer": "无法提供设备型号，当前无相关记录。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-02:fact",
+          "question": "我用的是CIRRUS-412。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-imperative-02",
+      "arm": "recent",
+      "case_id": "routing-v2-imperative-02",
+      "answer": "电机检修接收单和领件码",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-02:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-512，最终领件码是TAKE-612。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-correction-02",
+      "arm": "recent",
+      "case_id": "routing-v2-correction-02",
+      "answer": "无当前型号信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-02:old",
+          "question": "我用的是CEDAR-712。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-02:new",
+          "question": "实际型号是CEDAR-812，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-forget-02",
+      "arm": "recent",
+      "case_id": "routing-v2-forget-02",
+      "answer": "无相关记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-02:old",
+          "question": "我用的是HIDDEN-912。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-02:forget",
+          "question": "忘记我的型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-effective_date-02",
+      "arm": "recent",
+      "case_id": "routing-v2-effective_date-02",
+      "answer": "未提供当前生效的地面材质信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "没有给出提问时已生效的地面值；参考组在未来计划题提前采用了尚未生效的木地板。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-02:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-02:plan",
+          "question": "从2027-01-05起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-no_evidence-02",
+      "arm": "recent",
+      "case_id": "routing-v2-no_evidence-02",
+      "answer": "无相关凭证编号记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-02:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-02:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1112。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-ambiguity-02",
+      "arm": "recent",
+      "case_id": "routing-v2-ambiguity-02",
+      "answer": "无法提供机器型号，无相关数据记录。",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-02:a",
+          "question": "客厅设备型号是LIVING-1212。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-02:b",
+          "question": "卧室设备型号是BEDROOM-1312。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-multi_session-02",
+      "arm": "recent",
+      "case_id": "routing-v2-multi_session-02",
+      "answer": "保修凭证编号和密封条维修服务编号未提供，无法列出。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-02:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1412。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-02:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1512。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-short_forget-02",
+      "arm": "recent",
+      "case_id": "routing-v2-short_forget-02",
+      "answer": "简短",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "用户已撤回回答风格，回答仍断言/编造篇幅要求或复制示例，abstain=false，严格任务失败。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-02:preference",
+          "question": "我希望回答简短。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-02:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-note_forget-02",
+      "arm": "recent",
+      "case_id": "routing-v2-note_forget-02",
+      "answer": "配件预算上限为5000元",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "应停止使用/缺少可用依据，回答却恢复旧编号或给出无依据预算，拒答字段不正确。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-02:note",
+          "question": "记住：配件预算上限是3420元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-02:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-profile-03",
+      "arm": "recent",
+      "case_id": "routing-v2-profile-03",
+      "answer": "无法提供设备型号，当前无相关记录。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-profile-03:fact",
+          "question": "我用的是CIRRUS-413。",
+          "answer": "记录型号。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-imperative-03",
+      "arm": "recent",
+      "case_id": "routing-v2-imperative-03",
+      "answer": "电机检修接收单和领件码",
+      "abstain": false,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-imperative-03:repair",
+          "question": "电机检修已经结束。",
+          "answer": "检修接收单为RCP-513，最终领件码是TAKE-613。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-correction-03",
+      "arm": "recent",
+      "case_id": "routing-v2-correction-03",
+      "answer": "无当前型号信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-correction-03:old",
+          "question": "我用的是CEDAR-713。",
+          "answer": "先登记。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-correction-03:new",
+          "question": "实际型号是CEDAR-813，之前看错了。",
+          "answer": "更正记录。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-forget-03",
+      "arm": "recent",
+      "case_id": "routing-v2-forget-03",
+      "answer": "未提供2026-12-02的设备型号信息",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-forget-03:old",
+          "question": "我用的是HIDDEN-913。",
+          "answer": "已记录。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-forget-03:forget",
+          "question": "忘记我的设备型号。",
+          "answer": "已收到停止使用的要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-effective_date-03",
+      "arm": "recent",
+      "case_id": "routing-v2-effective_date-03",
+      "answer": "未提供当前生效的地面材质信息",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "没有给出提问时已生效的地面值；参考组在未来计划题提前采用了尚未生效的木地板。",
+      "evidence": [
+        {
+          "id": "routing-v2-effective_date-03:old",
+          "question": "我家是瓷砖。",
+          "answer": "记录现状。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-effective_date-03:plan",
+          "question": "从2026-12-14起，我家是木地板。",
+          "answer": "记录生效日期。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-no_evidence-03",
+      "arm": "recent",
+      "case_id": "routing-v2-no_evidence-03",
+      "answer": "无相关凭证编号记录",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-no_evidence-03:irrelevant",
+          "question": "清洁刷已经收回抽屉。",
+          "answer": "保持干燥。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-no_evidence-03:foreign",
+          "question": "检修凭证是什么？",
+          "answer": "凭证是FOREIGN-1113。",
+          "eligible_owner": false
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-ambiguity-03",
+      "arm": "recent",
+      "case_id": "routing-v2-ambiguity-03",
+      "answer": "无法提供机器型号，当前对话未提及设备信息。",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-ambiguity-03:a",
+          "question": "客厅设备型号是LIVING-1213。",
+          "answer": "登记客厅。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-ambiguity-03:b",
+          "question": "卧室设备型号是BEDROOM-1313。",
+          "answer": "登记卧室。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-multi_session-03",
+      "arm": "recent",
+      "case_id": "routing-v2-multi_session-03",
+      "answer": "保修凭证编号和密封条维修服务编号未提供，无法列出。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": false,
+      "reason": "原始档案有目标事实/编号，但本方案漏召回或未完整给出，未完成全局记忆任务。",
+      "evidence": [
+        {
+          "id": "routing-v2-multi_session-03:warranty",
+          "question": "保修凭证找到了。",
+          "answer": "凭证编号为WARRANTY-1413。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-multi_session-03:service",
+          "question": "密封条维修结案。",
+          "answer": "服务编号为SERVICE-1513。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-short_forget-03",
+      "arm": "recent",
+      "case_id": "routing-v2-short_forget-03",
+      "answer": "未明确指定详细程度，当前会话默认为简短回答。",
+      "abstain": true,
+      "rule_passed": false,
+      "ai_strict_passed": true,
+      "reason": "回答明确表示未指定用户偏好；“详细程度”是泛指问题对象，未断言旧偏好为详细。规则将普通词汇误判为旧值命中，AI判通过。",
+      "evidence": [
+        {
+          "id": "routing-v2-short_forget-03:preference",
+          "question": "我希望回答详细。",
+          "answer": "按此风格。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-short_forget-03:forget",
+          "question": "忘记我的回答风格。",
+          "answer": "已收到撤回要求。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    },
+    {
+      "id": "recent:routing-v2-note_forget-03",
+      "arm": "recent",
+      "case_id": "routing-v2-note_forget-03",
+      "answer": "未提供具体数值",
+      "abstain": true,
+      "rule_passed": true,
+      "ai_strict_passed": true,
+      "reason": "正确表示缺少可用依据或需要指定对象，没有选定不确定设备或恢复被撤回值。",
+      "evidence": [
+        {
+          "id": "routing-v2-note_forget-03:note",
+          "question": "记住：配件预算上限是3530元。",
+          "answer": "记录预算。",
+          "eligible_owner": true
+        },
+        {
+          "id": "routing-v2-note_forget-03:forget",
+          "question": "忘记我的配件预算。",
+          "answer": "不再使用旧预算。",
+          "eligible_owner": true
+        }
+      ],
+      "human_correct": null
+    }
+  ],
+  "summary": {
+    "memory_v1": {
+      "passed": 16,
+      "cases": 40,
+      "rate": 0.4
+    },
+    "memory_v2": {
+      "passed": 36,
+      "cases": 40,
+      "rate": 0.9
+    },
+    "full_history": {
+      "passed": 22,
+      "cases": 40,
+      "rate": 0.55
+    },
+    "recent": {
+      "passed": 15,
+      "cases": 40,
+      "rate": 0.375
+    }
+  }
+}

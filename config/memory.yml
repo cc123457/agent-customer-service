@@ -1,0 +1,60 @@
+service:
+  history_window: 20
+  context_budget: 8192
+  summary_budget: 1024
+  summary_input_budget: 16000
+  summary_timeout: 20
+  retry_cooldown: 30
+  turn_timeout: 90
+  lease_seconds: 120
+
+  max_summary_batches: 8
+  compression_timeout: 40
+  long_term_budget: 1200
+  archive_budget: 1600
+
+analysis:
+  enabled: true
+  model_enabled: true
+  timeout: 3
+  input_budget: 4096
+
+fact_cache:
+  enabled: true
+  ttl_seconds: 7200
+  ttl_jitter_seconds: 600
+  empty_ttl_seconds: 300
+  refresh_threshold_seconds: 3600
+  max_keys_per_user: 32
+  max_payload_bytes: 65536
+  retry_cooldown: 5
+
+semantic:
+  enabled: true
+  directory: data/personal_memory_index
+  min_similarity: 0.3
+
+history_retrieval:
+  enabled: true
+  max_turns: 200
+  candidate_limit: 12
+  result_limit: 3
+  rrf_k: 60
+  semantic:
+    enabled: true
+    directory: data/history_index
+    candidate_limit: 12
+    min_similarity: 0.3
+    chunk_chars: 1000
+    chunk_overlap: 150
+
+retention:
+  archive_after_days: 90
+  cold_archive_days: 365
+  archive_directory: data/memory_archives
+  summary_versions_to_keep: 5
+  completed_checkpoint_days: 30
+  failed_checkpoint_days: 7
+  max_hot_bytes_per_user: 10000000
+  max_active_notes_per_user: 200
+  max_answer_bytes: 32000

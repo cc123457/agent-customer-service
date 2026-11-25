@@ -14,6 +14,7 @@ def make_service(texts):
     }
     service.vector_store.similarity_search.return_value = []
     service._bm25_retriever = None
+    service.md5_store = "test-ingestion-md5-list"
     return service
 
 

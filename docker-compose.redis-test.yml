@@ -1,0 +1,13 @@
+# 独立测试项目，不改变6379上的现有业务实例，也不写持久卷。
+# docker compose -p agent-cache-test -f docker-compose.redis-test.yml up -d
+services:
+  control:
+    image: redis:7-alpine
+    command: ["redis-server", "--maxmemory", "16mb", "--maxmemory-policy", "noeviction", "--save", "", "--appendonly", "no"]
+    ports:
+      - "6391:6379"
+  cache:
+    image: redis:7-alpine
+    command: ["redis-server", "--maxmemory", "8mb", "--maxmemory-policy", "allkeys-lfu", "--save", "", "--appendonly", "no"]
+    ports:
+      - "6392:6379"

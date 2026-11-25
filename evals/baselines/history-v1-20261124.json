@@ -1,0 +1,1285 @@
+{
+  "manifest": {
+    "dataset_sha256": "b00977c5437c161da9bb268d5fdc9c2bf7076d00c12ec1cb5b7f84e69f5955bc",
+    "implementation_sha256": {
+      "memory/history_retrieval.py": "c846e68540e5a1d4148ec4fd03dcc64323b31d3436e0e71945213ea1419688ba",
+      "memory/history_index.py": "ccd0155f66836c9606707de7fe5df882cfeeae51708d2adf5e57852d44c6570c",
+      "services/chat_service.py": "79bbe353ca65c165fd302eaabb248bc98313eb3a8c1291f58552b0e321788e31",
+      "memory/context_builder.py": "1a05420e1b680d7ad1ce0ec7af4e43f08629ad723e526daa36ceb511e1451b8c",
+      "memory/long_term.py": "b41fee32fb8be7a08effdc8cd23d88fafc439ebceb649763586d5ea14c629203",
+      "memory/batch_summary.py": "e18240c3d70119cfaac43613b010dd8568f515a7ecf93d72854f56e244d43d56",
+      "db/memory_repository.py": "c1af76016a87d64c082374b12fc340b4dcb0394ab1b686ccea8892f1b7dd8c45",
+      "model/factory.py": "47f9a3e9c47b55b835334905d1d6e6b0a20781451d1ccf258babca34975c1921",
+      "config/memory.yml": "5bd5d99d40e0e704063e80a294a6573c248353a6401ef6285159354606bd5a2e",
+      "config/rag.yml": "841929b4e77f765c03f02b444f9eb213b3b343035a0600eb365dcbc12e31c4f5"
+    },
+    "evaluator_sha256": {
+      "scripts/evaluate_history.py": "88b3d89e05b72d3945deb0b8579726f2bb21eca6734b7246433008c1cb425124",
+      "evals/history_metrics.py": "36455dea5dd9317438d8e301203d82efaeabc821b63b9e0266fcc8e3b9935cf2"
+    },
+    "split": "test",
+    "case_ids": [
+      "test-exact-00",
+      "test-exact-01",
+      "test-exact-02",
+      "test-exact-03",
+      "test-exact-04",
+      "test-exact-05",
+      "test-assistant_resolution-00",
+      "test-assistant_resolution-01",
+      "test-assistant_resolution-02",
+      "test-assistant_resolution-03",
+      "test-assistant_resolution-04",
+      "test-assistant_resolution-05",
+      "test-paraphrase-00",
+      "test-paraphrase-01",
+      "test-paraphrase-02",
+      "test-paraphrase-03",
+      "test-paraphrase-04",
+      "test-paraphrase-05",
+      "test-multi_session-00",
+      "test-multi_session-01",
+      "test-multi_session-02",
+      "test-multi_session-03",
+      "test-multi_session-04",
+      "test-multi_session-05",
+      "test-temporal-00",
+      "test-temporal-01",
+      "test-temporal-02",
+      "test-temporal-03",
+      "test-temporal-04",
+      "test-temporal-05",
+      "test-knowledge_update-00",
+      "test-knowledge_update-01",
+      "test-knowledge_update-02",
+      "test-knowledge_update-03",
+      "test-knowledge_update-04",
+      "test-knowledge_update-05",
+      "test-no_answer-00",
+      "test-no_answer-01",
+      "test-no_answer-02",
+      "test-no_answer-03",
+      "test-no_answer-04",
+      "test-no_answer-05",
+      "test-recent-00",
+      "test-recent-01",
+      "test-recent-02",
+      "test-recent-03",
+      "test-recent-04",
+      "test-recent-05"
+    ],
+    "min_call_interval": 1.25,
+    "mode": "real_models",
+    "dataset_scope": "新编写的合成标注集，独立于既有30例；同类题存在模板相似性，未经人工二次审核，不是外部盲测集。",
+    "limits": [
+      "合成集含同类模板，未人工二次审核，不是外部盲测或线上表现",
+      "SQLite临时库、规则事实提取；没有测试生产MySQL、Redis命中或模型事实提取",
+      "未来消息模拟尚未发生，不入库；不能据此证明数据库已存在未来行时的防泄漏",
+      "四方案均直接回答历史问题，不运行产品知识库/业务工具Agent；完整历史是参考上限而非Oracle",
+      "模型短答案规则评分，human_correct仍待人工复核；上下文估算单位不是实际token",
+      "摘要一次生成两个方案复用；摘要和索引建设成本单列，Embedding精确token未知",
+      "Embedding记录SDK操作数，一次操作可包含多批HTTP请求及重试，不等于网络请求数"
+    ],
+    "embedding_model": "text-embedding-v4",
+    "chat_model": "qwen3.5-omni-flash"
+  },
+  "overall": {
+    "cases": 48,
+    "recorded_cases": 48,
+    "errors": 0,
+    "retrieval": {
+      "bm25": {
+        "positive_cases": 42,
+        "negative_cases": 6,
+        "hit_at_3": 0.9761904761904762,
+        "recall_at_3": 0.9761904761904762,
+        "mrr_at_3": 0.9642857142857143,
+        "all_evidence_at_3": 0.9761904761904762,
+        "negative_nonempty": 1,
+        "invalid_sources": 0,
+        "degraded_cases": 0,
+        "latency_p50": 0.008472599904052913,
+        "latency_p95": 0.015465900069102645
+      },
+      "hybrid": {
+        "positive_cases": 42,
+        "negative_cases": 6,
+        "hit_at_3": 1.0,
+        "recall_at_3": 1.0,
+        "mrr_at_3": 0.9880952380952381,
+        "all_evidence_at_3": 1.0,
+        "negative_nonempty": 6,
+        "invalid_sources": 0,
+        "degraded_cases": 0,
+        "latency_p50": 0.10599529999308288,
+        "latency_p95": 0.24500920006539673
+      },
+      "semantic": {
+        "positive_cases": 42,
+        "negative_cases": 6,
+        "hit_at_3": 1.0,
+        "recall_at_3": 1.0,
+        "mrr_at_3": 1.0,
+        "all_evidence_at_3": 1.0,
+        "negative_nonempty": 6,
+        "invalid_sources": 0,
+        "degraded_cases": 0,
+        "latency_p50": 0.09952109993901104,
+        "latency_p95": 0.42272459995001554
+      }
+    },
+    "answers": {
+      "recent": {
+        "cases": 48,
+        "passed": 14,
+        "rule_pass_rate": 0.2916666666666667,
+        "structure_valid": 48,
+        "forbidden_answer_cases": 0,
+        "latency_p50": 0.2848764000227675,
+        "latency_p95": 0.36575470003299415,
+        "mean_context_estimated_units": 1782.7083333333333,
+        "usage": {
+          "calls": 48,
+          "usage_reported_calls": 48,
+          "input_tokens_reported": 26992,
+          "output_tokens_reported": 863,
+          "failed_calls": 0
+        }
+      },
+      "summary_recent": {
+        "cases": 48,
+        "passed": 20,
+        "rule_pass_rate": 0.4166666666666667,
+        "structure_valid": 48,
+        "forbidden_answer_cases": 0,
+        "latency_p50": 0.2797892999369651,
+        "latency_p95": 0.3429319999413565,
+        "mean_context_estimated_units": 1632.1666666666667,
+        "usage": {
+          "calls": 48,
+          "usage_reported_calls": 48,
+          "input_tokens_reported": 25031,
+          "output_tokens_reported": 866,
+          "failed_calls": 0
+        }
+      },
+      "memory": {
+        "cases": 48,
+        "passed": 46,
+        "rule_pass_rate": 0.9583333333333334,
+        "structure_valid": 48,
+        "forbidden_answer_cases": 0,
+        "latency_p50": 0.296523500001058,
+        "latency_p95": 0.4040740999625996,
+        "mean_context_estimated_units": 2006.5208333333333,
+        "usage": {
+          "calls": 48,
+          "usage_reported_calls": 48,
+          "input_tokens_reported": 31667,
+          "output_tokens_reported": 1185,
+          "failed_calls": 0
+        }
+      },
+      "full_history": {
+        "cases": 48,
+        "passed": 46,
+        "rule_pass_rate": 0.9583333333333334,
+        "structure_valid": 48,
+        "forbidden_answer_cases": 1,
+        "latency_p50": 0.38414609991014004,
+        "latency_p95": 0.4790110000176355,
+        "mean_context_estimated_units": 7673.229166666667,
+        "usage": {
+          "calls": 48,
+          "usage_reported_calls": 48,
+          "input_tokens_reported": 124137,
+          "output_tokens_reported": 1170,
+          "failed_calls": 0
+        }
+      }
+    },
+    "actual_llm_usage": {
+      "calls": 240,
+      "usage_reported_calls": 240,
+      "input_tokens_reported": 269950,
+      "output_tokens_reported": 8981,
+      "failed_calls": 0
+    },
+    "summary_usage_shared_once": {
+      "calls": 48,
+      "usage_reported_calls": 48,
+      "input_tokens_reported": 62123,
+      "output_tokens_reported": 4897,
+      "failed_calls": 0
+    },
+    "embedding_sdk_operations": 245,
+    "embedding_input_bytes": 242980,
+    "embedding_token_usage": null
+  },
+  "categories": {
+    "assistant_resolution": {
+      "cases": 6,
+      "recorded_cases": 6,
+      "errors": 0,
+      "retrieval": {
+        "bm25": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.008152300026267767,
+          "latency_p95": 0.02499170007649809
+        },
+        "hybrid": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.10074739996343851,
+          "latency_p95": 0.2095094999531284
+        },
+        "semantic": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.10046740004327148,
+          "latency_p95": 0.17732379992958158
+        }
+      },
+      "answers": {
+        "recent": {
+          "cases": 6,
+          "passed": 0,
+          "rule_pass_rate": 0.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2710077000083402,
+          "latency_p95": 0.3455860000103712,
+          "mean_context_estimated_units": 1804.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3392,
+            "output_tokens_reported": 102,
+            "failed_calls": 0
+          }
+        },
+        "summary_recent": {
+          "cases": 6,
+          "passed": 2,
+          "rule_pass_rate": 0.3333333333333333,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2747461999533698,
+          "latency_p95": 0.34585729998070747,
+          "mean_context_estimated_units": 1628.6666666666667,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3123,
+            "output_tokens_reported": 132,
+            "failed_calls": 0
+          }
+        },
+        "memory": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.3367689000442624,
+          "latency_p95": 0.46974309999495745,
+          "mean_context_estimated_units": 2038.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3978,
+            "output_tokens_reported": 174,
+            "failed_calls": 0
+          }
+        },
+        "full_history": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.38414609991014004,
+          "latency_p95": 0.4268597000045702,
+          "mean_context_estimated_units": 7696.333333333333,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 15466,
+            "output_tokens_reported": 176,
+            "failed_calls": 0
+          }
+        }
+      },
+      "actual_llm_usage": {
+        "calls": 30,
+        "usage_reported_calls": 30,
+        "input_tokens_reported": 33744,
+        "output_tokens_reported": 1173,
+        "failed_calls": 0
+      },
+      "summary_usage_shared_once": {
+        "calls": 6,
+        "usage_reported_calls": 6,
+        "input_tokens_reported": 7785,
+        "output_tokens_reported": 589,
+        "failed_calls": 0
+      },
+      "embedding_sdk_operations": 30,
+      "embedding_input_bytes": 35538,
+      "embedding_token_usage": null
+    },
+    "exact": {
+      "cases": 6,
+      "recorded_cases": 6,
+      "errors": 0,
+      "retrieval": {
+        "bm25": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.009945400059223175,
+          "latency_p95": 0.6244196000043303
+        },
+        "hybrid": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.10665070009417832,
+          "latency_p95": 0.2477779999608174
+        },
+        "semantic": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.16719750000629574,
+          "latency_p95": 0.753834699979052
+        }
+      },
+      "answers": {
+        "recent": {
+          "cases": 6,
+          "passed": 0,
+          "rule_pass_rate": 0.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2703755999682471,
+          "latency_p95": 0.3113201999804005,
+          "mean_context_estimated_units": 1780.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3368,
+            "output_tokens_reported": 100,
+            "failed_calls": 0
+          }
+        },
+        "summary_recent": {
+          "cases": 6,
+          "passed": 3,
+          "rule_pass_rate": 0.5,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2501205999869853,
+          "latency_p95": 0.3235467999475077,
+          "mean_context_estimated_units": 1666.5,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3189,
+            "output_tokens_reported": 101,
+            "failed_calls": 0
+          }
+        },
+        "memory": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2813199999509379,
+          "latency_p95": 0.3281054000835866,
+          "mean_context_estimated_units": 2014.5,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3969,
+            "output_tokens_reported": 114,
+            "failed_calls": 0
+          }
+        },
+        "full_history": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.3560039000585675,
+          "latency_p95": 0.4068215999286622,
+          "mean_context_estimated_units": 7611.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 15370,
+            "output_tokens_reported": 114,
+            "failed_calls": 0
+          }
+        }
+      },
+      "actual_llm_usage": {
+        "calls": 30,
+        "usage_reported_calls": 30,
+        "input_tokens_reported": 33688,
+        "output_tokens_reported": 1108,
+        "failed_calls": 0
+      },
+      "summary_usage_shared_once": {
+        "calls": 6,
+        "usage_reported_calls": 6,
+        "input_tokens_reported": 7792,
+        "output_tokens_reported": 679,
+        "failed_calls": 0
+      },
+      "embedding_sdk_operations": 30,
+      "embedding_input_bytes": 34734,
+      "embedding_token_usage": null
+    },
+    "knowledge_update": {
+      "cases": 6,
+      "recorded_cases": 6,
+      "errors": 0,
+      "retrieval": {
+        "bm25": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 0.9166666666666666,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.008668099995702505,
+          "latency_p95": 0.015465900069102645
+        },
+        "hybrid": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 0.9166666666666666,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.14784919994417578,
+          "latency_p95": 0.24500920006539673
+        },
+        "semantic": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.09635460004210472,
+          "latency_p95": 0.1552566000027582
+        }
+      },
+      "answers": {
+        "recent": {
+          "cases": 6,
+          "passed": 2,
+          "rule_pass_rate": 0.3333333333333333,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.3077242000726983,
+          "latency_p95": 0.42638339998666197,
+          "mean_context_estimated_units": 1783.6666666666667,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3380,
+            "output_tokens_reported": 125,
+            "failed_calls": 0
+          }
+        },
+        "summary_recent": {
+          "cases": 6,
+          "passed": 2,
+          "rule_pass_rate": 0.3333333333333333,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2852978000883013,
+          "latency_p95": 0.37859989993739873,
+          "mean_context_estimated_units": 1621.1666666666667,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3113,
+            "output_tokens_reported": 105,
+            "failed_calls": 0
+          }
+        },
+        "memory": {
+          "cases": 6,
+          "passed": 5,
+          "rule_pass_rate": 0.8333333333333334,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2536648000823334,
+          "latency_p95": 0.37470919999759644,
+          "mean_context_estimated_units": 2432.6666666666665,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 4820,
+            "output_tokens_reported": 113,
+            "failed_calls": 0
+          }
+        },
+        "full_history": {
+          "cases": 6,
+          "passed": 5,
+          "rule_pass_rate": 0.8333333333333334,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 1,
+          "latency_p50": 0.3381521999835968,
+          "latency_p95": 0.4757597999414429,
+          "mean_context_estimated_units": 7738.833333333333,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 15758,
+            "output_tokens_reported": 109,
+            "failed_calls": 0
+          }
+        }
+      },
+      "actual_llm_usage": {
+        "calls": 30,
+        "usage_reported_calls": 30,
+        "input_tokens_reported": 34777,
+        "output_tokens_reported": 1043,
+        "failed_calls": 0
+      },
+      "summary_usage_shared_once": {
+        "calls": 6,
+        "usage_reported_calls": 6,
+        "input_tokens_reported": 7706,
+        "output_tokens_reported": 591,
+        "failed_calls": 0
+      },
+      "embedding_sdk_operations": 41,
+      "embedding_input_bytes": 30612,
+      "embedding_token_usage": null
+    },
+    "multi_session": {
+      "cases": 6,
+      "recorded_cases": 6,
+      "errors": 0,
+      "retrieval": {
+        "bm25": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.00913849996868521,
+          "latency_p95": 0.011237299884669483
+        },
+        "hybrid": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.10023420001380146,
+          "latency_p95": 0.12197849992662668
+        },
+        "semantic": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.09614669997245073,
+          "latency_p95": 0.12756709998939186
+        }
+      },
+      "answers": {
+        "recent": {
+          "cases": 6,
+          "passed": 0,
+          "rule_pass_rate": 0.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.28115880000405014,
+          "latency_p95": 0.300458199926652,
+          "mean_context_estimated_units": 1816.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3404,
+            "output_tokens_reported": 102,
+            "failed_calls": 0
+          }
+        },
+        "summary_recent": {
+          "cases": 6,
+          "passed": 0,
+          "rule_pass_rate": 0.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.27947589999530464,
+          "latency_p95": 0.2980845000129193,
+          "mean_context_estimated_units": 1684.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3170,
+            "output_tokens_reported": 104,
+            "failed_calls": 0
+          }
+        },
+        "memory": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.3677414000267163,
+          "latency_p95": 0.4346013000467792,
+          "mean_context_estimated_units": 2390.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 4845,
+            "output_tokens_reported": 251,
+            "failed_calls": 0
+          }
+        },
+        "full_history": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.4650693000294268,
+          "latency_p95": 0.5840315000386909,
+          "mean_context_estimated_units": 7815.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 15886,
+            "output_tokens_reported": 251,
+            "failed_calls": 0
+          }
+        }
+      },
+      "actual_llm_usage": {
+        "calls": 30,
+        "usage_reported_calls": 30,
+        "input_tokens_reported": 35009,
+        "output_tokens_reported": 1332,
+        "failed_calls": 0
+      },
+      "summary_usage_shared_once": {
+        "calls": 6,
+        "usage_reported_calls": 6,
+        "input_tokens_reported": 7704,
+        "output_tokens_reported": 624,
+        "failed_calls": 0
+      },
+      "embedding_sdk_operations": 30,
+      "embedding_input_bytes": 35988,
+      "embedding_token_usage": null
+    },
+    "no_answer": {
+      "cases": 6,
+      "recorded_cases": 6,
+      "errors": 0,
+      "retrieval": {
+        "bm25": {
+          "positive_cases": 0,
+          "negative_cases": 6,
+          "hit_at_3": null,
+          "recall_at_3": null,
+          "mrr_at_3": null,
+          "all_evidence_at_3": null,
+          "negative_nonempty": 1,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.006801299983635545,
+          "latency_p95": 0.012378999963402748
+        },
+        "hybrid": {
+          "positive_cases": 0,
+          "negative_cases": 6,
+          "hit_at_3": null,
+          "recall_at_3": null,
+          "mrr_at_3": null,
+          "all_evidence_at_3": null,
+          "negative_nonempty": 6,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.10569220001343638,
+          "latency_p95": 0.19153509999159724
+        },
+        "semantic": {
+          "positive_cases": 0,
+          "negative_cases": 6,
+          "hit_at_3": null,
+          "recall_at_3": null,
+          "mrr_at_3": null,
+          "all_evidence_at_3": null,
+          "negative_nonempty": 6,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.0990939000621438,
+          "latency_p95": 0.15037210006266832
+        }
+      },
+      "answers": {
+        "recent": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.29426520003471524,
+          "latency_p95": 0.3309924000641331,
+          "mean_context_estimated_units": 1777.5,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3365,
+            "output_tokens_reported": 102,
+            "failed_calls": 0
+          }
+        },
+        "summary_recent": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2986508999019861,
+          "latency_p95": 0.31914989999495447,
+          "mean_context_estimated_units": 1610.5,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3093,
+            "output_tokens_reported": 102,
+            "failed_calls": 0
+          }
+        },
+        "memory": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.287100899964571,
+          "latency_p95": 0.3789648999227211,
+          "mean_context_estimated_units": 1610.5,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3093,
+            "output_tokens_reported": 102,
+            "failed_calls": 0
+          }
+        },
+        "full_history": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.365246000001207,
+          "latency_p95": 0.41435999993700534,
+          "mean_context_estimated_units": 7472.166666666667,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 15037,
+            "output_tokens_reported": 107,
+            "failed_calls": 0
+          }
+        }
+      },
+      "actual_llm_usage": {
+        "calls": 30,
+        "usage_reported_calls": 30,
+        "input_tokens_reported": 32277,
+        "output_tokens_reported": 999,
+        "failed_calls": 0
+      },
+      "summary_usage_shared_once": {
+        "calls": 6,
+        "usage_reported_calls": 6,
+        "input_tokens_reported": 7689,
+        "output_tokens_reported": 586,
+        "failed_calls": 0
+      },
+      "embedding_sdk_operations": 30,
+      "embedding_input_bytes": 34173,
+      "embedding_token_usage": null
+    },
+    "paraphrase": {
+      "cases": 6,
+      "recorded_cases": 6,
+      "errors": 0,
+      "retrieval": {
+        "bm25": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 0.8333333333333334,
+          "recall_at_3": 0.8333333333333334,
+          "mrr_at_3": 0.8333333333333334,
+          "all_evidence_at_3": 0.8333333333333334,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.008472599904052913,
+          "latency_p95": 0.011930399923585355
+        },
+        "hybrid": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.10613669990561903,
+          "latency_p95": 0.22311949997674674
+        },
+        "semantic": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.10104219999630004,
+          "latency_p95": 0.137795599992387
+        }
+      },
+      "answers": {
+        "recent": {
+          "cases": 6,
+          "passed": 0,
+          "rule_pass_rate": 0.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2904755000490695,
+          "latency_p95": 0.39186510001309216,
+          "mean_context_estimated_units": 1801.5,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3399,
+            "output_tokens_reported": 121,
+            "failed_calls": 0
+          }
+        },
+        "summary_recent": {
+          "cases": 6,
+          "passed": 1,
+          "rule_pass_rate": 0.16666666666666666,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.28369710000697523,
+          "latency_p95": 0.33510370005387813,
+          "mean_context_estimated_units": 1661.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3173,
+            "output_tokens_reported": 109,
+            "failed_calls": 0
+          }
+        },
+        "memory": {
+          "cases": 6,
+          "passed": 5,
+          "rule_pass_rate": 0.8333333333333334,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.3202330000931397,
+          "latency_p95": 0.34582329995464534,
+          "mean_context_estimated_units": 2033.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 4006,
+            "output_tokens_reported": 152,
+            "failed_calls": 0
+          }
+        },
+        "full_history": {
+          "cases": 6,
+          "passed": 5,
+          "rule_pass_rate": 0.8333333333333334,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.3779448999557644,
+          "latency_p95": 0.46302680007647723,
+          "mean_context_estimated_units": 7656.5,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 15450,
+            "output_tokens_reported": 144,
+            "failed_calls": 0
+          }
+        }
+      },
+      "actual_llm_usage": {
+        "calls": 30,
+        "usage_reported_calls": 30,
+        "input_tokens_reported": 33803,
+        "output_tokens_reported": 1158,
+        "failed_calls": 0
+      },
+      "summary_usage_shared_once": {
+        "calls": 6,
+        "usage_reported_calls": 6,
+        "input_tokens_reported": 7775,
+        "output_tokens_reported": 632,
+        "failed_calls": 0
+      },
+      "embedding_sdk_operations": 30,
+      "embedding_input_bytes": 35269,
+      "embedding_token_usage": null
+    },
+    "recent": {
+      "cases": 6,
+      "recorded_cases": 6,
+      "errors": 0,
+      "retrieval": {
+        "bm25": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.008291299920529127,
+          "latency_p95": 0.010459000011906028
+        },
+        "hybrid": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.11811220005620271,
+          "latency_p95": 0.3418298000469804
+        },
+        "semantic": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.0971436999971047,
+          "latency_p95": 0.318397399969399
+        }
+      },
+      "answers": {
+        "recent": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.25925669993739575,
+          "latency_p95": 0.30237940000370145,
+          "mean_context_estimated_units": 1695.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3292,
+            "output_tokens_reported": 110,
+            "failed_calls": 0
+          }
+        },
+        "summary_recent": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.24611160007771105,
+          "latency_p95": 0.30084309994708747,
+          "mean_context_estimated_units": 1544.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3055,
+            "output_tokens_reported": 107,
+            "failed_calls": 0
+          }
+        },
+        "memory": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.24668430001474917,
+          "latency_p95": 0.2783998999511823,
+          "mean_context_estimated_units": 1544.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3055,
+            "output_tokens_reported": 108,
+            "failed_calls": 0
+          }
+        },
+        "full_history": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.2946660000598058,
+          "latency_p95": 0.38688949996139854,
+          "mean_context_estimated_units": 7610.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 15376,
+            "output_tokens_reported": 105,
+            "failed_calls": 0
+          }
+        }
+      },
+      "actual_llm_usage": {
+        "calls": 30,
+        "usage_reported_calls": 30,
+        "input_tokens_reported": 32746,
+        "output_tokens_reported": 1045,
+        "failed_calls": 0
+      },
+      "summary_usage_shared_once": {
+        "calls": 6,
+        "usage_reported_calls": 6,
+        "input_tokens_reported": 7968,
+        "output_tokens_reported": 615,
+        "failed_calls": 0
+      },
+      "embedding_sdk_operations": 30,
+      "embedding_input_bytes": 34644,
+      "embedding_token_usage": null
+    },
+    "temporal": {
+      "cases": 6,
+      "recorded_cases": 6,
+      "errors": 0,
+      "retrieval": {
+        "bm25": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.004065099987201393,
+          "latency_p95": 0.007933699991554022
+        },
+        "hybrid": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.09848769998643547,
+          "latency_p95": 0.15361569996457547
+        },
+        "semantic": {
+          "positive_cases": 6,
+          "negative_cases": 0,
+          "hit_at_3": 1.0,
+          "recall_at_3": 1.0,
+          "mrr_at_3": 1.0,
+          "all_evidence_at_3": 1.0,
+          "negative_nonempty": 0,
+          "invalid_sources": 0,
+          "degraded_cases": 0,
+          "latency_p50": 0.0943958000279963,
+          "latency_p95": 0.14976229995954782
+        }
+      },
+      "answers": {
+        "recent": {
+          "cases": 6,
+          "passed": 0,
+          "rule_pass_rate": 0.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.29646509990561754,
+          "latency_p95": 0.31717279995791614,
+          "mean_context_estimated_units": 1804.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3392,
+            "output_tokens_reported": 101,
+            "failed_calls": 0
+          }
+        },
+        "summary_recent": {
+          "cases": 6,
+          "passed": 0,
+          "rule_pass_rate": 0.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.27083990001119673,
+          "latency_p95": 0.3100941999582574,
+          "mean_context_estimated_units": 1641.5,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3115,
+            "output_tokens_reported": 106,
+            "failed_calls": 0
+          }
+        },
+        "memory": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.28294889989774674,
+          "latency_p95": 0.3069993999088183,
+          "mean_context_estimated_units": 1989.5,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 3901,
+            "output_tokens_reported": 171,
+            "failed_calls": 0
+          }
+        },
+        "full_history": {
+          "cases": 6,
+          "passed": 6,
+          "rule_pass_rate": 1.0,
+          "structure_valid": 6,
+          "forbidden_answer_cases": 0,
+          "latency_p50": 0.3896108000772074,
+          "latency_p95": 0.4734638000372797,
+          "mean_context_estimated_units": 7786.0,
+          "usage": {
+            "calls": 6,
+            "usage_reported_calls": 6,
+            "input_tokens_reported": 15794,
+            "output_tokens_reported": 164,
+            "failed_calls": 0
+          }
+        }
+      },
+      "actual_llm_usage": {
+        "calls": 30,
+        "usage_reported_calls": 30,
+        "input_tokens_reported": 33906,
+        "output_tokens_reported": 1123,
+        "failed_calls": 0
+      },
+      "summary_usage_shared_once": {
+        "calls": 6,
+        "usage_reported_calls": 6,
+        "input_tokens_reported": 7704,
+        "output_tokens_reported": 581,
+        "failed_calls": 0
+      },
+      "embedding_sdk_operations": 24,
+      "embedding_input_bytes": 2022,
+      "embedding_token_usage": null
+    }
+  }
+}

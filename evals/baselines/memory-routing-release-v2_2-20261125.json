@@ -1,0 +1,1250 @@
+{
+  "version": "memory-routing-release-v2.2",
+  "dataset_sha256": "52d46d965eb618567ba5199c7844ec68c1e9d0970b9970c63b40fca6500a0af9",
+  "cases": 40,
+  "first_frozen_protocol_sha256": "fae8c7cd8ce5742af7f5480c3c940e4ed04db4206db71e2b74070cf05b8c9d67",
+  "final_regression_protocol_sha256": "ceb34d6da06b4a257a5c7ece782f3f5edd87704f254c3f13696dd46935a58d82",
+  "original_frozen_sources_verified_from_archive": true,
+  "original_source_archive_sha256": "591d9d8eb3e9763835ebf3613a06701a1b365ddc0d4d1b11b2a8afb6a52c69a7",
+  "original_source_count": 169,
+  "first_run": {
+    "memory_v1": {
+      "cases": 40,
+      "passed": 16,
+      "rule_pass_rate": 0.4,
+      "by_category": {
+        "profile": {
+          "passed": 4,
+          "cases": 4
+        },
+        "imperative": {
+          "passed": 0,
+          "cases": 4
+        },
+        "correction": {
+          "passed": 4,
+          "cases": 4
+        },
+        "forget": {
+          "passed": 0,
+          "cases": 4
+        },
+        "effective_date": {
+          "passed": 4,
+          "cases": 4
+        },
+        "no_evidence": {
+          "passed": 4,
+          "cases": 4
+        },
+        "ambiguity": {
+          "passed": 0,
+          "cases": 4
+        },
+        "multi_session": {
+          "passed": 0,
+          "cases": 4
+        },
+        "short_forget": {
+          "passed": 0,
+          "cases": 4
+        },
+        "note_forget": {
+          "passed": 0,
+          "cases": 4
+        }
+      },
+      "abstention": {
+        "should_abstain_cases": 20,
+        "answerable_cases": 20,
+        "correct_abstentions": 4,
+        "incorrect_answer_flags": 16,
+        "over_refusals": 6,
+        "correct_answer_flags": 14,
+        "invalid_or_missing": 0,
+        "invalid_unanswerable": 0,
+        "abstention_precision": 0.4,
+        "abstention_recall": 0.2,
+        "abstention_f1": 0.26666666666666666,
+        "incorrect_answer_flag_rate": 0.8,
+        "over_refusal_rate": 0.3
+      },
+      "errors": 0,
+      "models": {
+        "qwen3-omni-flash": {
+          "calls": 90,
+          "input_tokens": 80204,
+          "output_tokens": 3518,
+          "errors": 0
+        },
+        "text-embedding-v3": {
+          "calls": 156,
+          "input_tokens": 14488,
+          "output_tokens": 0,
+          "errors": 0
+        }
+      },
+      "stages": {
+        "memory_v1/summary": {
+          "calls": 36,
+          "input_tokens_reported": 28813,
+          "output_tokens_reported": 2769,
+          "reference_cost_known_subtotal": 0.07096949999999999,
+          "unpriced_or_missing_calls": 0
+        },
+        "memory_v1/context/documents": {
+          "calls": 102,
+          "input_tokens_reported": 13444,
+          "output_tokens_reported": 0,
+          "reference_cost_known_subtotal": 0.006721999999999999,
+          "unpriced_or_missing_calls": 0
+        },
+        "memory_v1/context/query": {
+          "calls": 54,
+          "input_tokens_reported": 1044,
+          "output_tokens_reported": 0,
+          "reference_cost_known_subtotal": 0.0005219999999999999,
+          "unpriced_or_missing_calls": 0
+        },
+        "memory_v1/answer": {
+          "calls": 40,
+          "input_tokens_reported": 43409,
+          "output_tokens_reported": 623,
+          "reference_cost_known_subtotal": 0.08243489999999999,
+          "unpriced_or_missing_calls": 0
+        },
+        "memory_v1/analysis": {
+          "calls": 14,
+          "input_tokens_reported": 7982,
+          "output_tokens_reported": 126,
+          "reference_cost_known_subtotal": 0.015237,
+          "unpriced_or_missing_calls": 0
+        }
+      },
+      "reference_cost_known_subtotal": 0.1758854,
+      "missing_usage_or_price": 0,
+      "answer_latency_p50": 0.355194199946709,
+      "answer_latency_p95": 0.4116023000096902,
+      "context_setup_p50": 3.0963041000068188,
+      "actual_paid": null
+    },
+    "memory_v2": {
+      "cases": 40,
+      "passed": 36,
+      "rule_pass_rate": 0.9,
+      "by_category": {
+        "profile": {
+          "passed": 4,
+          "cases": 4
+        },
+        "imperative": {
+          "passed": 4,
+          "cases": 4
+        },
+        "correction": {
+          "passed": 4,
+          "cases": 4
+        },
+        "forget": {
+          "passed": 4,
+          "cases": 4
+        },
+        "effective_date": {
+          "passed": 4,
+          "cases": 4
+        },
+        "no_evidence": {
+          "passed": 4,
+          "cases": 4
+        },
+        "ambiguity": {
+          "passed": 4,
+          "cases": 4
+        },
+        "multi_session": {
+          "passed": 4,
+          "cases": 4
+        },
+        "short_forget": {
+          "passed": 0,
+          "cases": 4
+        },
+        "note_forget": {
+          "passed": 4,
+          "cases": 4
+        }
+      },
+      "abstention": {
+        "should_abstain_cases": 20,
+        "answerable_cases": 20,
+        "correct_abstentions": 16,
+        "incorrect_answer_flags": 4,
+        "over_refusals": 0,
+        "correct_answer_flags": 20,
+        "invalid_or_missing": 0,
+        "invalid_unanswerable": 0,
+        "abstention_precision": 1.0,
+        "abstention_recall": 0.8,
+        "abstention_f1": 0.8888888888888888,
+        "incorrect_answer_flag_rate": 0.2,
+        "over_refusal_rate": 0.0
+      },
+      "errors": 0,
+      "models": {
+        "qwen3-omni-flash": {
+          "calls": 76,
+          "input_tokens": 66904,
+          "output_tokens": 3962,
+          "errors": 0
+        },
+        "text-embedding-v3": {
+          "calls": 64,
+          "input_tokens": 8784,
+          "output_tokens": 0,
+          "errors": 0
+        }
+      },
+      "stages": {
+        "memory_v2/summary": {
+          "calls": 36,
+          "input_tokens_reported": 28624,
+          "output_tokens_reported": 3078,
+          "reference_cost_known_subtotal": 0.0727614,
+          "unpriced_or_missing_calls": 0
+        },
+        "memory_v2/answer": {
+          "calls": 36,
+          "input_tokens_reported": 35112,
+          "output_tokens_reported": 692,
+          "reference_cost_known_subtotal": 0.06797639999999999,
+          "unpriced_or_missing_calls": 0
+        },
+        "memory_v2/context/documents": {
+          "calls": 48,
+          "input_tokens_reported": 8568,
+          "output_tokens_reported": 0,
+          "reference_cost_known_subtotal": 0.004284,
+          "unpriced_or_missing_calls": 0
+        },
+        "memory_v2/context/query": {
+          "calls": 16,
+          "input_tokens_reported": 216,
+          "output_tokens_reported": 0,
+          "reference_cost_known_subtotal": 0.000108,
+          "unpriced_or_missing_calls": 0
+        },
+        "memory_v2/analysis": {
+          "calls": 4,
+          "input_tokens_reported": 3168,
+          "output_tokens_reported": 192,
+          "reference_cost_known_subtotal": 0.007027200000000001,
+          "unpriced_or_missing_calls": 0
+        }
+      },
+      "reference_cost_known_subtotal": 0.15215700000000001,
+      "missing_usage_or_price": 0,
+      "answer_latency_p50": 0.36434440000448376,
+      "answer_latency_p95": 0.5323766999645159,
+      "context_setup_p50": 2.255622399970889,
+      "actual_paid": null
+    },
+    "full_history": {
+      "cases": 40,
+      "passed": 22,
+      "rule_pass_rate": 0.55,
+      "by_category": {
+        "profile": {
+          "passed": 4,
+          "cases": 4
+        },
+        "imperative": {
+          "passed": 4,
+          "cases": 4
+        },
+        "correction": {
+          "passed": 4,
+          "cases": 4
+        },
+        "forget": {
+          "passed": 0,
+          "cases": 4
+        },
+        "effective_date": {
+          "passed": 2,
+          "cases": 4
+        },
+        "no_evidence": {
+          "passed": 4,
+          "cases": 4
+        },
+        "ambiguity": {
+          "passed": 0,
+          "cases": 4
+        },
+        "multi_session": {
+          "passed": 4,
+          "cases": 4
+        },
+        "short_forget": {
+          "passed": 0,
+          "cases": 4
+        },
+        "note_forget": {
+          "passed": 0,
+          "cases": 4
+        }
+      },
+      "abstention": {
+        "should_abstain_cases": 20,
+        "answerable_cases": 20,
+        "correct_abstentions": 4,
+        "incorrect_answer_flags": 16,
+        "over_refusals": 0,
+        "correct_answer_flags": 20,
+        "invalid_or_missing": 0,
+        "invalid_unanswerable": 0,
+        "abstention_precision": 1.0,
+        "abstention_recall": 0.2,
+        "abstention_f1": 0.3333333333333333,
+        "incorrect_answer_flag_rate": 0.8,
+        "over_refusal_rate": 0.0
+      },
+      "errors": 0,
+      "models": {
+        "qwen3-omni-flash": {
+          "calls": 40,
+          "input_tokens": 81625,
+          "output_tokens": 737,
+          "errors": 0
+        }
+      },
+      "stages": {
+        "full_history/answer": {
+          "calls": 40,
+          "input_tokens_reported": 81625,
+          "output_tokens_reported": 737,
+          "reference_cost_known_subtotal": 0.15201029999999993,
+          "unpriced_or_missing_calls": 0
+        }
+      },
+      "reference_cost_known_subtotal": 0.15201030000000001,
+      "missing_usage_or_price": 0,
+      "answer_latency_p50": 0.383765000035055,
+      "answer_latency_p95": 0.5560952000087127,
+      "context_setup_p50": 7.24999699741602e-05,
+      "actual_paid": null
+    },
+    "recent": {
+      "cases": 40,
+      "passed": 13,
+      "rule_pass_rate": 0.325,
+      "by_category": {
+        "profile": {
+          "passed": 0,
+          "cases": 4
+        },
+        "imperative": {
+          "passed": 0,
+          "cases": 4
+        },
+        "correction": {
+          "passed": 0,
+          "cases": 4
+        },
+        "forget": {
+          "passed": 4,
+          "cases": 4
+        },
+        "effective_date": {
+          "passed": 0,
+          "cases": 4
+        },
+        "no_evidence": {
+          "passed": 4,
+          "cases": 4
+        },
+        "ambiguity": {
+          "passed": 4,
+          "cases": 4
+        },
+        "multi_session": {
+          "passed": 0,
+          "cases": 4
+        },
+        "short_forget": {
+          "passed": 0,
+          "cases": 4
+        },
+        "note_forget": {
+          "passed": 1,
+          "cases": 4
+        }
+      },
+      "abstention": {
+        "should_abstain_cases": 20,
+        "answerable_cases": 20,
+        "correct_abstentions": 15,
+        "incorrect_answer_flags": 5,
+        "over_refusals": 16,
+        "correct_answer_flags": 4,
+        "invalid_or_missing": 0,
+        "invalid_unanswerable": 0,
+        "abstention_precision": 0.4838709677419355,
+        "abstention_recall": 0.75,
+        "abstention_f1": 0.5882352941176471,
+        "incorrect_answer_flag_rate": 0.25,
+        "over_refusal_rate": 0.8
+      },
+      "errors": 0,
+      "models": {
+        "qwen3-omni-flash": {
+          "calls": 40,
+          "input_tokens": 31754,
+          "output_tokens": 759,
+          "errors": 0
+        }
+      },
+      "stages": {
+        "recent/answer": {
+          "calls": 40,
+          "input_tokens_reported": 31754,
+          "output_tokens_reported": 759,
+          "reference_cost_known_subtotal": 0.06239430000000002,
+          "unpriced_or_missing_calls": 0
+        }
+      },
+      "reference_cost_known_subtotal": 0.0623943,
+      "missing_usage_or_price": 0,
+      "answer_latency_p50": 0.37463830003980547,
+      "answer_latency_p95": 0.4502377000171691,
+      "context_setup_p50": 0.00012980005703866482,
+      "actual_paid": null
+    }
+  },
+  "final_regression": {
+    "cases": 40,
+    "passed": 36,
+    "rule_pass_rate": 0.9,
+    "by_category": {
+      "profile": {
+        "passed": 4,
+        "cases": 4
+      },
+      "imperative": {
+        "passed": 4,
+        "cases": 4
+      },
+      "correction": {
+        "passed": 4,
+        "cases": 4
+      },
+      "forget": {
+        "passed": 4,
+        "cases": 4
+      },
+      "effective_date": {
+        "passed": 4,
+        "cases": 4
+      },
+      "no_evidence": {
+        "passed": 4,
+        "cases": 4
+      },
+      "ambiguity": {
+        "passed": 4,
+        "cases": 4
+      },
+      "multi_session": {
+        "passed": 4,
+        "cases": 4
+      },
+      "short_forget": {
+        "passed": 0,
+        "cases": 4
+      },
+      "note_forget": {
+        "passed": 4,
+        "cases": 4
+      }
+    },
+    "abstention": {
+      "should_abstain_cases": 20,
+      "answerable_cases": 20,
+      "correct_abstentions": 16,
+      "incorrect_answer_flags": 4,
+      "over_refusals": 0,
+      "correct_answer_flags": 20,
+      "invalid_or_missing": 0,
+      "invalid_unanswerable": 0,
+      "abstention_precision": 1.0,
+      "abstention_recall": 0.8,
+      "abstention_f1": 0.8888888888888888,
+      "incorrect_answer_flag_rate": 0.2,
+      "over_refusal_rate": 0.0
+    },
+    "errors": 0,
+    "models": {
+      "qwen3-omni-flash": {
+        "calls": 76,
+        "input_tokens": 66966,
+        "output_tokens": 4032,
+        "errors": 0
+      },
+      "text-embedding-v3": {
+        "calls": 64,
+        "input_tokens": 8784,
+        "output_tokens": 0,
+        "errors": 0
+      }
+    },
+    "stages": {
+      "memory_v2/summary": {
+        "calls": 36,
+        "input_tokens_reported": 28624,
+        "output_tokens_reported": 3135,
+        "reference_cost_known_subtotal": 0.07315470000000002,
+        "unpriced_or_missing_calls": 0
+      },
+      "memory_v2/answer": {
+        "calls": 36,
+        "input_tokens_reported": 35174,
+        "output_tokens_reported": 705,
+        "reference_cost_known_subtotal": 0.06817770000000001,
+        "unpriced_or_missing_calls": 0
+      },
+      "memory_v2/context/documents": {
+        "calls": 48,
+        "input_tokens_reported": 8568,
+        "output_tokens_reported": 0,
+        "reference_cost_known_subtotal": 0.004284,
+        "unpriced_or_missing_calls": 0
+      },
+      "memory_v2/context/query": {
+        "calls": 16,
+        "input_tokens_reported": 216,
+        "output_tokens_reported": 0,
+        "reference_cost_known_subtotal": 0.000108,
+        "unpriced_or_missing_calls": 0
+      },
+      "memory_v2/analysis": {
+        "calls": 4,
+        "input_tokens_reported": 3168,
+        "output_tokens_reported": 192,
+        "reference_cost_known_subtotal": 0.007027200000000001,
+        "unpriced_or_missing_calls": 0
+      }
+    },
+    "reference_cost_known_subtotal": 0.15275160000000002,
+    "missing_usage_or_price": 0,
+    "answer_latency_p50": 0.3400287999538705,
+    "answer_latency_p95": 0.5294384999433532,
+    "context_setup_p50": 2.2748860999708995,
+    "actual_paid": null,
+    "source_verified": {
+      "verified": true,
+      "protocol_sha256": "ceb34d6da06b4a257a5c7ece782f3f5edd87704f254c3f13696dd46935a58d82"
+    }
+  },
+  "invalid_baseline": {
+    "path": "memory-routing-holdout-v2-20261125/recent/results.jsonl",
+    "error": "missing turn_id",
+    "cases": 40,
+    "valid_for_comparison": false
+  },
+  "repair_scope": "Only recent-context constructor gains id/turn_id; original memory_v1/v2 and full-history raw results retained. Final v2.2 is explicitly known-set regression after further analyzer fixes.",
+  "limitations": [
+    "内部合成题，作者参与实现，非外部独立基准。",
+    "各方案分进程顺序运行，同题同一模型参数，但提供方后端版本/时间漂移无法完全控制。",
+    "历史准备运行各自生产事实分析与SQL事务；不重放过去业务工具和过去回答模型。",
+    "提问运行各自ChatService上下文准备；普通答案用同一结构化评测提示，不是完整JWT/业务工具Agent验收。",
+    "旧快照与新实现都固定v3重新建各自冷索引；不能把原v4首测与这轮直接归因于代码。",
+    "原始历史参考包含撤回指令与旧原文，由回答模型执行遗忘要求。",
+    "成本包括本方案历史分析、当前分析、摘要、索引建设、查询和回答；实际账单未知。",
+    "SDK内部未暴露的HTTP重试不另行猜测；401/403停止后续批量。"
+  ],
+  "extraction_regression": {
+    "manifest": {
+      "mode": "real_model",
+      "split": "test",
+      "suite": "extraction",
+      "case_ids": [
+        "extraction:test-device-00",
+        "extraction:test-device-01",
+        "extraction:test-device-02",
+        "extraction:test-device-03",
+        "extraction:test-floor_pet-00",
+        "extraction:test-floor_pet-01",
+        "extraction:test-floor_pet-02",
+        "extraction:test-floor_pet-03",
+        "extraction:test-style-00",
+        "extraction:test-style-01",
+        "extraction:test-style-02",
+        "extraction:test-style-03",
+        "extraction:test-preference_note-00",
+        "extraction:test-preference_note-01",
+        "extraction:test-preference_note-02",
+        "extraction:test-preference_note-03",
+        "extraction:test-negation-00",
+        "extraction:test-negation-01",
+        "extraction:test-negation-02",
+        "extraction:test-negation-03",
+        "extraction:test-hypothesis-00",
+        "extraction:test-hypothesis-01",
+        "extraction:test-hypothesis-02",
+        "extraction:test-hypothesis-03",
+        "extraction:test-third_party_optout-00",
+        "extraction:test-third_party_optout-01",
+        "extraction:test-third_party_optout-02",
+        "extraction:test-third_party_optout-03",
+        "extraction:test-entity-00",
+        "extraction:test-entity-01",
+        "extraction:test-entity-02",
+        "extraction:test-entity-03",
+        "extraction:test-conflict_correction-00",
+        "extraction:test-conflict_correction-01",
+        "extraction:test-conflict_correction-02",
+        "extraction:test-conflict_correction-03",
+        "extraction:test-effective_time-00",
+        "extraction:test-effective_time-01",
+        "extraction:test-effective_time-02",
+        "extraction:test-effective_time-03",
+        "extraction:test-business-00",
+        "extraction:test-business-01",
+        "extraction:test-business-02",
+        "extraction:test-business-03",
+        "extraction:test-temporary-00",
+        "extraction:test-temporary-01",
+        "extraction:test-temporary-02",
+        "extraction:test-temporary-03"
+      ],
+      "scope": "内部合成标签，模板重复，未经人工二次审核；不宣称外部盲测或完整语义真值。",
+      "dataset_sha256": "366ac578923167010612fc245212e1d55fdfe5462823fb0975f0e60064c6b787",
+      "implementation_sha256": {
+        "memory/request_analyzer.py": "0039353d396d4e47214631eb261cf241714ae6602465eb98407b03081edc3220",
+        "memory/long_term.py": "b6ac98430b1d39f61fb68c6636bdb96d894b5976eea19487783cba0ac69d597e",
+        "memory/batch_summary.py": "2e52b4e7c2bb8de35fc487392d032fd1a13117f0a760b02dfe3a21b6a33e4a65",
+        "memory/fact_rules.py": "a0288ee2dceda28aaa5e46e031f697a553e3c122ba177d37f1e7cae483fa7eb9",
+        "services/json_payload.py": "58eb6d929df54f1d666c73fbf21871aa56a25773c9244c02d42af91a1219e30f",
+        "model/factory.py": "d1e20cb061dd8fd59213d87ad3c8b9aa367f10da21ceea78fa022caea89ea1e6",
+        "model/usage.py": "ef83e15e392cf6895ebda11937c0d70cd781d66310b5a55040f78b6ff0bdc23f",
+        "config/memory.yml": "5303191afd4783e07dbb884dd1914c656985d089876915021607df355b4642f0",
+        "config/rag.yml": "04757603deeccc53d6c05d42806e325487df5f4d0f22720ec14e133556dc1124"
+      },
+      "min_call_interval": 2.0,
+      "evaluator_sha256": {
+        "scripts/evaluate_memory_quality.py": "526508fdddce090951ee3886d16003b26664309641ce39e5444833b3c5cd27bf",
+        "evals/quality_metrics.py": "4ec1041678570809d0e234748e35813856b1263545b66bb6fbc070abe3f0c1a0",
+        "scripts/evaluate_history.py": "7b157d8bd1afa2fd0aafbf924a8799f3d461e44eda5b18fa9b6aec81519f1da7"
+      },
+      "chat_model": "qwen3-omni-flash"
+    },
+    "provider_access_blocked": null,
+    "overall": {
+      "extraction": {
+        "rules": {
+          "cases": 48,
+          "tp": 27,
+          "fp": 0,
+          "fn": 6,
+          "precision": 1.0,
+          "recall": 0.8181818181818182,
+          "f1": 0.9,
+          "case_exact": 42,
+          "positive_cases": 31,
+          "negative_cases": 17,
+          "negative_false_write_cases": 0,
+          "unsupported_value_count": 0,
+          "cases_with_failed_model_calls": 0,
+          "error_cases": 0,
+          "actual_model_cases": 0
+        },
+        "rules_model": {
+          "cases": 48,
+          "tp": 32,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9696969696969697,
+          "f1": 0.9846153846153847,
+          "case_exact": 47,
+          "positive_cases": 31,
+          "negative_cases": 17,
+          "negative_false_write_cases": 0,
+          "unsupported_value_count": 0,
+          "cases_with_failed_model_calls": 0,
+          "error_cases": 0,
+          "actual_model_cases": 17
+        }
+      },
+      "summary": null,
+      "actual_model_usage": {
+        "calls": 17,
+        "usage_reported_calls": 17,
+        "input_tokens_reported": 13534,
+        "output_tokens_reported": 1275,
+        "failed_calls": 0
+      }
+    },
+    "categories": {
+      "business": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "case_exact": 4,
+            "positive_cases": 0,
+            "negative_cases": 4,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "case_exact": 4,
+            "positive_cases": 0,
+            "negative_cases": 4,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 4
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 4,
+          "usage_reported_calls": 4,
+          "input_tokens_reported": 3186,
+          "output_tokens_reported": 192,
+          "failed_calls": 0
+        }
+      },
+      "conflict_correction": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 0,
+          "usage_reported_calls": 0,
+          "input_tokens_reported": null,
+          "output_tokens_reported": null,
+          "failed_calls": 0
+        }
+      },
+      "device": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 3,
+            "fp": 0,
+            "fn": 1,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "case_exact": 3,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 1
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 1,
+          "usage_reported_calls": 1,
+          "input_tokens_reported": 803,
+          "output_tokens_reported": 121,
+          "failed_calls": 0
+        }
+      },
+      "effective_time": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 0,
+          "usage_reported_calls": 0,
+          "input_tokens_reported": null,
+          "output_tokens_reported": null,
+          "failed_calls": 0
+        }
+      },
+      "entity": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 0,
+          "usage_reported_calls": 0,
+          "input_tokens_reported": null,
+          "output_tokens_reported": null,
+          "failed_calls": 0
+        }
+      },
+      "floor_pet": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 1,
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1": 0.8888888888888888,
+            "case_exact": 3,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 1
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 1,
+          "usage_reported_calls": 1,
+          "input_tokens_reported": 793,
+          "output_tokens_reported": 107,
+          "failed_calls": 0
+        }
+      },
+      "hypothesis": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "case_exact": 4,
+            "positive_cases": 0,
+            "negative_cases": 4,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "case_exact": 4,
+            "positive_cases": 0,
+            "negative_cases": 4,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 1
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 1,
+          "usage_reported_calls": 1,
+          "input_tokens_reported": 798,
+          "output_tokens_reported": 48,
+          "failed_calls": 0
+        }
+      },
+      "negation": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 3,
+            "negative_cases": 1,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 3,
+            "negative_cases": 1,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 1
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 1,
+          "usage_reported_calls": 1,
+          "input_tokens_reported": 800,
+          "output_tokens_reported": 119,
+          "failed_calls": 0
+        }
+      },
+      "preference_note": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 0,
+            "fp": 0,
+            "fn": 4,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "case_exact": 0,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 3,
+            "fp": 0,
+            "fn": 1,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "case_exact": 3,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 4
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 4,
+          "usage_reported_calls": 4,
+          "input_tokens_reported": 3176,
+          "output_tokens_reported": 381,
+          "failed_calls": 0
+        }
+      },
+      "style": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "case_exact": 4,
+            "positive_cases": 4,
+            "negative_cases": 0,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 0,
+          "usage_reported_calls": 0,
+          "input_tokens_reported": null,
+          "output_tokens_reported": null,
+          "failed_calls": 0
+        }
+      },
+      "temporary": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "case_exact": 4,
+            "positive_cases": 0,
+            "negative_cases": 4,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "case_exact": 4,
+            "positive_cases": 0,
+            "negative_cases": 4,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 3
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 3,
+          "usage_reported_calls": 3,
+          "input_tokens_reported": 2380,
+          "output_tokens_reported": 144,
+          "failed_calls": 0
+        }
+      },
+      "third_party_optout": {
+        "extraction": {
+          "rules": {
+            "cases": 4,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "case_exact": 4,
+            "positive_cases": 0,
+            "negative_cases": 4,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 0
+          },
+          "rules_model": {
+            "cases": 4,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "case_exact": 4,
+            "positive_cases": 0,
+            "negative_cases": 4,
+            "negative_false_write_cases": 0,
+            "unsupported_value_count": 0,
+            "cases_with_failed_model_calls": 0,
+            "error_cases": 0,
+            "actual_model_cases": 2
+          }
+        },
+        "summary": null,
+        "actual_model_usage": {
+          "calls": 2,
+          "usage_reported_calls": 2,
+          "input_tokens_reported": 1598,
+          "output_tokens_reported": 163,
+          "failed_calls": 0
+        }
+      }
+    }
+  },
+  "local_tests": {
+    "passed": 209,
+    "skipped_mysql": 107,
+    "existing_dependency_warning": 1,
+    "sqlite": true,
+    "real_redis": true
+  }
+}

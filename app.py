@@ -17,6 +17,8 @@ if "session_id" not in st.session_state:
     st.session_state["session_id"] = str(uuid.uuid4())
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
+if "pending_request" not in st.session_state:
+    st.session_state["pending_request"] = None
 
 
 # ========== 登录区 ==========
@@ -43,21 +45,35 @@ for msg in st.session_state["messages"]:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
+retry = bool(st.session_state["pending_request"]) and st.button("继续上次未完成的回答")
 prompt = st.chat_input()
 
-if prompt:
-    st.session_state["messages"].append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
+if prompt or retry:
+    request_id = st.session_state["pending_request"] if retry else str(uuid.uuid4())
+    if prompt:
+        st.session_state["pending_request"] = None
+        st.session_state["messages"].append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.markdown(prompt)
 
     def chat_stream():
-        """流式调用后端 /chat，逐段产出回答"""
+        """使用外层 prompt、会话 ID 和 Token 请求 /chat，产出供页面显示的文字。
+
+        非200显示接口错误；SSE中的action加工具前缀、error加错误前缀，
+        answer显示正文，遇DONE结束。此处不执行工具、不保存后端会话。
+        """
+        endpoint = (f"/conversations/{st.session_state['session_id']}/requests/{request_id}/resume" if retry else "/chat")
+        body = None if retry else {"message": prompt, "session_id": st.session_state["session_id"], "request_id": request_id}
         with requests.post(
-            f"{BACKEND_URL}/chat",
-            json={"message": prompt, "session_id": st.session_state["session_id"]},
+            BACKEND_URL + endpoint,
+            json=body,
             headers={"Authorization": f"Bearer {st.session_state['token']}"},   # 带上登录 token
             stream=True,
+            timeout=(5, 120),
         ) as resp:
+            if resp.status_code != 200:
+                yield f"请求失败（{resp.status_code}）：{resp.json().get('detail', '请稍后重试')}"
+                return
             for line in resp.iter_lines():
                 if not line.startswith(b"data: "):
                     continue
@@ -67,9 +83,22 @@ if prompt:
                 item = json.loads(payload)     # 解析出 {type, content}
                 if item["type"] == "action":
                     yield f"[工具] {item['content']}\n\n"   # 动作：带标记前缀
+                elif item["type"] == "error":
+                    if item.get("resumable") and item.get("request_id"):
+                        st.session_state["pending_request"] = item["request_id"]
+                    yield f"\n\n[错误] {item['content']}"
                 else:
                     yield item["content"]      # 回答：正常显示
 
     with st.chat_message("assistant"):
-        reply = st.write_stream(chat_stream())
+        if retry:
+            st.session_state["pending_request"] = None
+        try:
+            reply = st.write_stream(chat_stream())
+        except requests.RequestException:
+            st.session_state["pending_request"] = request_id
+            reply = "连接中断，可尝试继续上次回答；若请求尚在处理中，请稍后再试。"
+            st.error(reply)
     st.session_state["messages"].append({"role": "assistant", "content": reply})
+    if st.session_state["pending_request"]:
+        st.rerun()

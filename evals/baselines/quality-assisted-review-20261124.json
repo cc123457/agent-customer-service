@@ -1,0 +1,30 @@
+{
+  "method": "assistant_semantic_inspection",
+  "human_correct": null,
+  "scope": "仅检查摘要规则未匹配的3项，不是全量人评，不修改冻结标签或自动分数。",
+  "source_results_sha256": "591d43a6b612222f23b17d3dd888eca7a41354735bb03186ae9d55e0e9b0412d",
+  "items": [
+    {
+      "id": "test-negation-00",
+      "fact": "unresolved",
+      "rule_result": false,
+      "assistant_assessment": "semantic_fact_present",
+      "evidence": "已清理充电触点但问题依旧，系统确认无法标记修复",
+      "reason": "问题依旧表示尚未解决，冻结别名未覆盖该说法。"
+    },
+    {
+      "id": "test-correction-00",
+      "fact": "ticket",
+      "rule_result": false,
+      "assistant_assessment": "fact_omitted",
+      "missing": "TK-10020"
+    },
+    {
+      "id": "test-correction-03",
+      "fact": "ticket",
+      "rule_result": false,
+      "assistant_assessment": "fact_omitted",
+      "missing": "TK-10023"
+    }
+  ]
+}

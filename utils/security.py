@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 from utils.path_tool import get_abs_path
 
 # 显式加载项目根的 .env，确保无论从哪个目录启动都能读到密钥
-load_dotenv(get_abs_path(".env"), override=True)
+load_dotenv(get_abs_path(".env"), override=False)
 
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-change-me")  # 生产环境必须配置
 ALGORITHM = "HS256"

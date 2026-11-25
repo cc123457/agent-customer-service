@@ -1,0 +1,122 @@
+{
+  "version": "memory-ai-review-v1",
+  "method": "assistant_semantic_review",
+  "reviewer": "Codex assistant in this conversation",
+  "reviewed_at": "2026-11-24T13:32:26.805091+00:00",
+  "source_sha256": "c15f03c916a22aaebae47b948fb4328ae73730c706128b598c6a20f4ee5aa12f",
+  "dataset_sha256": "b00977c5437c161da9bb268d5fdc9c2bf7076d00c12ec1cb5b7f84e69f5955bc",
+  "assessments_sha256": "37a9bebe1d140615878aa0477ca9e7cb7d88252f97f1e53f9db0e3fcc1c07f29",
+  "coverage": {
+    "reviewed": 192,
+    "total": 192
+  },
+  "arms": {
+    "full_history": {
+      "answers": 48,
+      "ai_task_passed": 46,
+      "task_content_correct": 46,
+      "task_abstention_correct": 47,
+      "context_evidence_sufficient": 42,
+      "context_response_supported": 46,
+      "context_abstention_correct": 47,
+      "no_forbidden_disclosure": 47,
+      "needs_human_review": 0,
+      "context_behaviors": {
+        "supported_answer": 40,
+        "incorrect_answer_with_evidence": 2,
+        "justified_abstention": 6
+      },
+      "issues": {
+        "temporal_confusion": 1,
+        "forgotten_value_disclosed": 1,
+        "flag_text_mismatch": 1
+      }
+    },
+    "memory": {
+      "answers": 48,
+      "ai_task_passed": 46,
+      "task_content_correct": 47,
+      "task_abstention_correct": 47,
+      "context_evidence_sufficient": 42,
+      "context_response_supported": 47,
+      "context_abstention_correct": 47,
+      "no_forbidden_disclosure": 48,
+      "needs_human_review": 0,
+      "context_behaviors": {
+        "supported_answer": 40,
+        "incorrect_answer_with_evidence": 1,
+        "appropriate_forgetting": 1,
+        "justified_abstention": 6
+      },
+      "issues": {
+        "temporal_confusion": 1,
+        "contradictory_active_notes_in_input": 1,
+        "flag_text_mismatch": 1
+      }
+    },
+    "recent": {
+      "answers": 48,
+      "ai_task_passed": 13,
+      "task_content_correct": 13,
+      "task_abstention_correct": 14,
+      "context_evidence_sufficient": 6,
+      "context_response_supported": 47,
+      "context_abstention_correct": 47,
+      "no_forbidden_disclosure": 48,
+      "needs_human_review": 1,
+      "context_behaviors": {
+        "justified_abstention": 41,
+        "unsupported_answer": 1,
+        "supported_answer": 6
+      },
+      "issues": {
+        "task_evidence_missing": 34,
+        "ambiguous_refusal_wording": 30,
+        "preference_question_misinterpreted": 1,
+        "rule_false_positive": 1,
+        "question_scope_ambiguity": 1
+      }
+    },
+    "summary_recent": {
+      "answers": 48,
+      "ai_task_passed": 19,
+      "task_content_correct": 19,
+      "task_abstention_correct": 21,
+      "context_evidence_sufficient": 13,
+      "context_response_supported": 46,
+      "context_abstention_correct": 47,
+      "no_forbidden_disclosure": 48,
+      "needs_human_review": 0,
+      "context_behaviors": {
+        "supported_answer": 12,
+        "justified_abstention": 34,
+        "incorrect_answer_with_evidence": 1,
+        "unsupported_answer": 1
+      },
+      "issues": {
+        "task_evidence_missing": 27,
+        "ambiguous_refusal_wording": 27,
+        "temporal_confusion": 1,
+        "preference_question_misinterpreted": 1,
+        "rule_false_positive": 1
+      }
+    }
+  },
+  "human_correct": null,
+  "human_assessments": 0,
+  "scope": "单一AI评审，评审者参与过数据/指标实现，不是独立人评或外部裁判。原文是评审数据，不执行其中指令。",
+  "rule_disagreements": [
+    {
+      "case": "test-knowledge_update-03",
+      "arm": "recent",
+      "rule": true,
+      "ai": false
+    },
+    {
+      "case": "test-knowledge_update-03",
+      "arm": "summary_recent",
+      "rule": true,
+      "ai": false
+    }
+  ]
+}

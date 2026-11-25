@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 from utils.path_tool import get_abs_path
 
-load_dotenv(get_abs_path(".env"), override=True)
+load_dotenv(get_abs_path(".env"), override=False)
 
 
 def get_langfuse_handler():

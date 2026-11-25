@@ -11,12 +11,35 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    # 起一个 Redis 服务容器，供限流/会话记忆测试使用
+    # 独立 MySQL/Redis 测试服务，缺失时必须失败，不允许集成用例悄悄跳过。
     services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_DATABASE: agent_memory_test
+          MYSQL_USER: tester
+          MYSQL_PASSWORD: test-only
+          MYSQL_ROOT_PASSWORD: test-root-only
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping -h 127.0.0.1 --silent"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 20
       redis:
         image: redis:7-alpine
         ports:
           - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis-cache:
+        image: redis:7-alpine
+        ports:
+          - 6380:6379
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
@@ -39,6 +62,31 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt -r requirements-dev.txt
 
-      # 4. 运行单元测试
+      # 只配置CI新建的专用服务，绝不更改开发者的6379实例。
+      - name: 配置独立Redis预算与淘汰策略
+        run: |
+          python - <<'PY'
+          from redis import Redis
+          control = Redis(host="127.0.0.1", port=6379)
+          cache = Redis(host="127.0.0.1", port=6380)
+          control.config_set("maxmemory", "64mb")
+          control.config_set("maxmemory-policy", "noeviction")
+          cache.config_set("maxmemory", "8mb")
+          cache.config_set("maxmemory-policy", "allkeys-lfu")
+          PY
+
+      # 4. 运行单元测试与真实数据库/Redis集成测试
       - name: 运行测试
+        env:
+          REQUIRE_REDIS: "1"
+          REQUIRE_FACT_CACHE_REDIS: "1"
+          TEST_FACT_CACHE_DEDICATED: "1"
+          TEST_REDIS_URL: redis://127.0.0.1:6379/15
+          TEST_FACT_CACHE_REDIS_URL: redis://127.0.0.1:6380/15
+          REDIS_URL: redis://127.0.0.1:6379/15
+          FACT_CACHE_REDIS_URL: redis://127.0.0.1:6380/15
+          REDIS_CONTROL_REQUIRED: "1"
+          DASHSCOPE_API_KEY: test-only-not-a-real-key
+          REQUIRE_MYSQL: "1"
+          TEST_MEMORY_DATABASE_URL: mysql+pymysql://tester:test-only@127.0.0.1:3306/agent_memory_test?charset=utf8mb4
         run: python -m pytest tests/ -v

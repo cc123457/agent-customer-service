@@ -1,0 +1,26 @@
+services:
+  memory-db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: agent_memory
+      MYSQL_USER: agent
+      MYSQL_PASSWORD: ${MEMORY_DB_PASSWORD:?Set MEMORY_DB_PASSWORD in .env}
+      MYSQL_ROOT_PASSWORD: ${MEMORY_DB_ROOT_PASSWORD:?Set MEMORY_DB_ROOT_PASSWORD in .env}
+    volumes:
+      - memory_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    environment:
+      MEMORY_DATABASE_URL: ${MEMORY_DATABASE_URL:?Set the container MySQL URL in .env}
+    depends_on:
+      memory-db:
+        condition: service_healthy
+
+volumes:
+  memory_mysql_data:

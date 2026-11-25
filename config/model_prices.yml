@@ -1,0 +1,22 @@
+# 官方北京地域、同步纯文本原价参考。免费额度抵扣/实际地域/兼容服务折扣以账单为准。
+currency: CNY
+verified_on: '2026-11-24'
+mode: official_mainland_text_reference
+sources:
+  - https://help.aliyun.cn/zh/model-studio/qwen3-5-omni-flash
+  - https://help.aliyun.com/zh/model-studio/embedding-interfaces-compatible-with-openai
+  - https://help.aliyun.com/zh/model-studio/qwen3-omni-flash
+  - https://help.aliyun.com/zh/model-studio/text-embedding-synchronous-api
+models:
+  qwen3.5-omni-flash:
+    input_per_million: 2.2
+    output_per_million: 13.3
+  text-embedding-v4:
+    input_per_million: 0.5
+    output_per_million: 0
+  text-embedding-v3:
+    input_per_million: 0.5
+    output_per_million: 0
+  qwen3-omni-flash:
+    input_per_million: 1.8
+    output_per_million: 6.9

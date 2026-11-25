@@ -9,12 +9,16 @@ from utils.logger_handler import logger
 from langchain_community.retrievers import BM25Retriever
 import jieba
 import os
+from model.embedding_space import embedding_space
 
 
 class VectorStoreService:
     def __init__(self):
+        """每个向量空间使用独立集合及入库清单，模型更换后重新入库，不删除旧库。"""
+        self.space = embedding_space(embed_model)
+        self.md5_store = get_abs_path(chroma_conf["md5_hex_store"]) + "." + self.space
         self.vector_store = Chroma(
-            collection_name=chroma_conf["collection_name"],
+            collection_name=chroma_conf["collection_name"] + "_" + self.space,
             embedding_function=embed_model,
             persist_directory=get_abs_path(chroma_conf["persist_directory"]),
         )
@@ -91,12 +95,12 @@ class VectorStoreService:
         """
 
         def check_md5_hex(md5_for_check: str):
-            if not os.path.exists(get_abs_path(chroma_conf["md5_hex_store"])):
+            if not os.path.exists(self.md5_store):
                 # 创建文件
-                open(get_abs_path(chroma_conf["md5_hex_store"]), "w", encoding="utf-8").close()
+                open(self.md5_store, "w", encoding="utf-8").close()
                 return False            # md5 没处理过
 
-            with open(get_abs_path(chroma_conf["md5_hex_store"]), "r", encoding="utf-8") as f:
+            with open(self.md5_store, "r", encoding="utf-8") as f:
                 for line in f.readlines():
                     line = line.strip()
                     if line == md5_for_check:
@@ -105,7 +109,7 @@ class VectorStoreService:
                 return False            # md5 没处理过
 
         def save_md5_hex(md5_for_check: str):
-            with open(get_abs_path(chroma_conf["md5_hex_store"]), "a", encoding="utf-8") as f:
+            with open(self.md5_store, "a", encoding="utf-8") as f:
                 f.write(md5_for_check + "\n")
 
         def get_file_documents(read_path: str):

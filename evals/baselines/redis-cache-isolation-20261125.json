@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-25T16:00:21+0800",
+  "seed": 20261125,
+  "scope": "synthetic_local_cache_baseline_no_models_no_production_capacity_claim",
+  "dataset": {
+    "total_users": 96,
+    "users_with_facts": 48,
+    "cold_queries": 64,
+    "repeated_queries": 64,
+    "mixed_queries": 512
+  },
+  "redis": {
+    "control": {
+      "maxmemory": 16777216,
+      "maxmemory_policy": "noeviction"
+    },
+    "cache": {
+      "maxmemory": 8388608,
+      "maxmemory_policy": "allkeys-lfu"
+    }
+  },
+  "config": {
+    "ttl_seconds": 7200,
+    "ttl_jitter_seconds": 600,
+    "empty_ttl_seconds": 300,
+    "refresh_threshold_seconds": 3600,
+    "max_keys_per_user": 32,
+    "max_payload_bytes": 65536,
+    "retry_cooldown": 5
+  },
+  "phases": [
+    {
+      "name": "cold_64_distinct_users",
+      "queries": 64,
+      "hits": 0,
+      "misses": 64,
+      "bypasses": 0,
+      "sql_loads": 64,
+      "errors": 0,
+      "reclaimed_keys": 0,
+      "hit_rate": 0.0,
+      "all_selects": 256,
+      "fact_body_selects": 64,
+      "latency_ms": {
+        "median": 4.218649992253631,
+        "p95": 5.242700106464326
+      }
+    },
+    {
+      "name": "same_64_queries_repeated",
+      "queries": 64,
+      "hits": 64,
+      "misses": 0,
+      "bypasses": 0,
+      "sql_loads": 0,
+      "errors": 0,
+      "reclaimed_keys": 0,
+      "hit_rate": 1.0,
+      "all_selects": 192,
+      "fact_body_selects": 0,
+      "latency_ms": {
+        "median": 1.9428000086918473,
+        "p95": 2.2413000697270036
+      }
+    },
+    {
+      "name": "mixed_512_skewed_users_and_four_shapes",
+      "queries": 512,
+      "hits": 337,
+      "misses": 175,
+      "bypasses": 0,
+      "sql_loads": 175,
+      "errors": 0,
+      "reclaimed_keys": 0,
+      "hit_rate": 0.658203125,
+      "all_selects": 1711,
+      "fact_body_selects": 175,
+      "latency_ms": {
+        "median": 2.2017000010237098,
+        "p95": 4.722299985587597
+      }
+    }
+  ],
+  "observed": {
+    "cache": {
+      "keys": 236,
+      "bytes": 115488
+    },
+    "directory": {
+      "keys": 95,
+      "bytes": 115216
+    },
+    "max_directory_entries": 4,
+    "nonempty_ttl_seconds": 7439,
+    "empty_ttl_seconds": 298,
+    "correction_old_key_removed": true,
+    "correction_value": "X20"
+  },
+  "source_sha256": {
+    "memory/fact_cache.py": "7f47da94a16133ca289a2f21e066547084795b02dfccdd0b2221663d6eae8c8f",
+    "memory/fact_cache_directory.py": "341875a7832d85ac9f40152e2efd07d19d8e87a832a2255d49a729f927e5ac57",
+    "utils/redis_client.py": "034d6fe129e48914daad9f4a34ab703814125f583753e9ed6843f1a041538520",
+    "db/memory_factory.py": "241e85107182149f0f2b5fefff30be40e0c7425d876e40d2891c08ab8a9d1808",
+    "db/memory_repository.py": "bd839642b8ecb00821a735b5bed80ef3182e1c7a8e10d3d717a6dfac0987b2b0",
+    "db/memory_schedule.py": "a914e8a94a33292409e950d004b0003b11b4f9fbc14fd374cdbe86618c900b3c",
+    "config/memory.yml": "858b1cb2533d2680c46ae63342aecfacd281b1536998fccf641784d4318e8544",
+    "scripts/verify_fact_cache.py": "c8b042cae0b0d00911c58e21daba680ef65c51cf863503ac5ec15e321fe20a14",
+    "api/deps.py": "877d222382e36d2194f6e05b7d216fb969d9804416207c293ae000b0d7cd0a37",
+    "docker-compose.yml": "f6725d6b06b6b62ccd2364635db6c96e7b03323ca3c1671007f6a8dd80a215e7",
+    "docker-compose.redis-test.yml": "501fca4e4fc78e17e36019178648da50cbce3f90829de320c42f4604be864594",
+    ".env.example": "990154d07c9e8e88cdd888b6afb224684c432603be18704298fb3b8ca06a6a0c",
+    ".github/workflows/ci.yml": "582e106189990833fcf3e99457f2badcd0f5d74d01d5b1561b3dd85b297e3839",
+    "tests/test_fact_cache.py": "d93d3abdef60cdc05bac0db02fb896e1418548ac48e6a2bf8f8a45e3385f0ff9",
+    "tests/test_cache_isolation.py": "89aaadbbcfb18b3562aff592687a1c33c56947a9886198d7e7e17ddd61f1f3fd",
+    "tests/conftest.py": "c53e0627a68252f62d87edfcc2a52876b99c914f3ce33da982df04319dc1db04"
+  },
+  "limitations": [
+    "受控合成访问，不代表线上命中率或并发容量",
+    "SQL版本与遗忘策略仍需查询；sql_loads仅统计事实加载器",
+    "MEMORY USAGE仅含本次键，不等于进程RSS或maxmemory",
+    "真实TTL秒数未加速；续期边界另由真实Redis测试用PEXPIRE验证",
+    "未配置MySQL，未调用聊天/Embedding，未比较旧实现的性能"
+  ],
+  "validation": {
+    "passed": 214,
+    "skipped": 96,
+    "failures": 0,
+    "errors": 0,
+    "warnings": 1,
+    "wall_seconds": 49.04,
+    "skipped_reason": "MySQL test URL not configured",
+    "isolation_specialized_passed": 17,
+    "real_backends": [
+      "SQLite",
+      "Redis 7.4.12 control 6391 noeviction 16MiB",
+      "Redis 7.4.12 cache 6392 allkeys-lfu 8MiB"
+    ],
+    "required_flags": [
+      "REQUIRE_REDIS=1",
+      "REQUIRE_FACT_CACHE_REDIS=1",
+      "REDIS_CONTROL_REQUIRED=1",
+      "TEST_FACT_CACHE_DEDICATED=1"
+    ],
+    "cache_eviction_preserves_control_state": true,
+    "production_6379_unchanged": true,
+    "remote_ci_executed": false,
+    "junit_path": "evals/runs/redis-cache-isolation-20261125/pytest.xml"
+  }
+}

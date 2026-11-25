@@ -1,13 +1,22 @@
-# 一键编排：后端 + Redis
+# 一键编排：后端 + 控制Redis + 事实缓存Redis
 # 用法：docker compose up -d   （-d 表示后台运行）
 services:
-  # Redis：会话记忆 + 限流
+  # 控制实例：租约、限流和缓存键目录；不参与缓存淘汰。
   redis:
     image: redis:7-alpine
+    command: ["redis-server", "--maxmemory", "${CONTROL_REDIS_MAXMEMORY:-128mb}", "--maxmemory-policy", "noeviction"]
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data          # 数据持久化到命名卷，容器删除后数据不丢
+    restart: unless-stopped
+
+  # 缓存实例：内容可从SQL重建；独立容量和淘汰，关闭缓存副本的磁盘持久化。
+  redis-cache:
+    image: redis:7-alpine
+    command: ["redis-server", "--maxmemory", "${FACT_CACHE_REDIS_MAXMEMORY:-256mb}", "--maxmemory-policy", "allkeys-lfu", "--save", "", "--appendonly", "no"]
+    ports:
+      - "${FACT_CACHE_REDIS_PORT:-6380}:6379"
     restart: unless-stopped
 
   # 后端：FastAPI
@@ -19,12 +28,15 @@ services:
       - .env                       # 把 .env 里的密钥/配置注入容器环境变量
     environment:
       - REDIS_URL=redis://redis:6379/0   # 覆盖：容器内要用服务名 redis，不是 127.0.0.1
+      - FACT_CACHE_REDIS_URL=redis://redis-cache:6379/0
+      - REDIS_CONTROL_REQUIRED=1
     volumes:
       - ./chroma_db:/app/chroma_db  # 向量库持久化到宿主机
       - ./data:/app/data            # SQLite 数据库 + 知识库源文件持久化
       - ./logs:/app/logs            # 日志持久化
     depends_on:
       - redis                       # 保证 redis 先启动
+      - redis-cache
     restart: unless-stopped
 
 volumes:

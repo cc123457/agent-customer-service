@@ -20,12 +20,18 @@ chroma_db/
 logs/
 *.log
 md5.text
+md5.text.*
 
 # --- 运行期数据库（SQLite，可重建） ---
 data/agent.db
+data/memory.db*
+data/personal_memory_index/
+data/history_index/
+data/memory_archives/
 
 # --- 测试缓存 ---
 .pytest_cache/
+evals/runs/
 
 # --- 个人笔记（不公开） ---
 docs/面试复盘.md
